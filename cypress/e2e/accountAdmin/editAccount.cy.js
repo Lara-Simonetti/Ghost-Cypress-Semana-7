@@ -1,6 +1,6 @@
 describe('Sign In', () => {
     beforeEach(() => {
-        cy.visit('http://localhost:2370/ghost/#/signin');
+        cy.visit('/ghost/#/signin');
         cy.get('#identification').type('jeimmy@gmail.com')
         cy.get('#password').type('Colombia1234!')
         cy.get('#ember7').click()
