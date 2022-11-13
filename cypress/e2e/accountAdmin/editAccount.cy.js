@@ -11,7 +11,6 @@ describe('Sign In', () => {
 
     it('Edit Admin Account with valid data ', () => {
 
-
         cy.get('#user-name').clear()
         cy.get('#user-name').type('Xiomara Camacho Medina')
         cy.get('#user-slug').clear()
