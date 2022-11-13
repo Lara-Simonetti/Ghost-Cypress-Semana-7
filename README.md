@@ -13,7 +13,7 @@
 
 | Escenario ID | Funcionalidad | Condiciones Iniciales | Descripción| Steps to Repro |Resultados Esperados|Tipo de Prueba| 
 |--------------|---------------|-----------------------|------------|----------------|--------------------|--------------|
-| CY01 | Editar Cuenta Administrador | Tener credenciales válidas de una cuenta de administrador |Edición de cuenta con datos válidos| - Visitar la página de SigIn |Resultados Esperados|Tipo de Prueba|
+| CY01 | Editar Cuenta Administrador | Tener credenciales válidas de una cuenta de administrador |Edición de cuenta con datos válidos| - Visitar la página de SigIn - dfdsfsdf|Resultados Esperados|Tipo de Prueba|
 | CY01 | Nintendo    | E             | 1600         |1600         |1600         |
 | CY02        | Atlus       | T             | 1500         |1600         |1600         |
 | CY03| Square Enix | T             | 1500         |1600         |1600         |
