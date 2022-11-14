@@ -1,3 +1,6 @@
+# MISW4103-Semana5-Equipo6 | Pruebas en Cypress
+Entrega de la Semana 5: Pruebas E2E
+
 ## Funcionalidades
 
 - Editar Cuenta Administrador: En esta funcionalidad se integraron los escenarios positivos y negativos correspondientes a la edición del perfil de una cuenta de administrador. 
@@ -6,6 +9,12 @@
 
 - Creación de Tags: En esta funcionalidad se probaron escenarios de la creación de tags para post.
 
+## Pasos para ejecutar las pruebas
+### Cypress files: editAccount.cy, createPost.cy y createTag.cy
+1. Desplegar ghost localmente y crear manualmente una cuenta de administrador con las siguientes crendenciales: 
+- Usuario: jeimmy@gmail.com
+- password: Colombia1234!
+2. 
 
 
 ## Escenarios de Prueba
