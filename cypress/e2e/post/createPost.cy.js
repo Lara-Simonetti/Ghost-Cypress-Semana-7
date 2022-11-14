@@ -8,7 +8,7 @@ describe('Sign In', () => {
         cy.get('a[href="#/editor/post/"]').click()  
     })
 
-    it('Create a draft Post and Verify Draft List', () => {
+    it('CY05 Create a draft Post and Verify Draft List', () => {
         let randomString= Name_Alpha_Numeric() 
         cy.get('textarea').type(randomString)        
         cy.get('.koenig-editor__editor.__mobiledoc-editor.__has-no-content').type("Test")   
@@ -22,7 +22,7 @@ describe('Sign In', () => {
     })
 
 
-    it('Create a new Post Successfully and validate on website', () => {
+    it('CY06 Create a new Post Successfully and validate on website', () => {
         let randomString= Name_Alpha_Numeric() 
         cy.get('textarea').type(randomString)        
         cy.get('.koenig-editor__editor.__mobiledoc-editor.__has-no-content').type("Test")   
@@ -38,7 +38,7 @@ describe('Sign In', () => {
     })
 
 
-    it('Create a new Post Successfully and Verify Published List', () => {
+    it('CY07 Create a new Post Successfully and Verify Published List', () => {
         let randomString= Name_Alpha_Numeric() 
         cy.get('textarea').type(randomString)        
         cy.get('.koenig-editor__editor.__mobiledoc-editor.__has-no-content').type("Test")   
@@ -56,7 +56,7 @@ describe('Sign In', () => {
             
     })
 
-    it('Create a new Scheduled Post Successfully and check Scheduled list', () => {
+    it('CY08 Create a new Scheduled Post Successfully and check Scheduled list', () => {
         let randomString= Name_Alpha_Numeric() 
         cy.get('textarea').type(randomString)        
         cy.get('.koenig-editor__editor.__mobiledoc-editor.__has-no-content').type("Test")   

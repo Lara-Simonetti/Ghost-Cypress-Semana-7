@@ -9,7 +9,7 @@ describe('Sign In', () => {
     })
 
 
-    it('Create a new tag Successfully ', () => {
+    it('CY09 Create a new tag Successfully ', () => {
         cy.wait(1000)
         let randomString= Name_Alpha_Numeric() 
         cy.get('.ember-view.gh-btn.gh-btn-primary').click()
@@ -23,7 +23,7 @@ describe('Sign In', () => {
 
     })
 
-    it('Create a new tag Unsuccessfully: blank name ', () => {
+    it('CY10 Create a new tag Unsuccessfully: blank name ', () => {
         cy.wait(1000)
         let randomString= Name_Alpha_Numeric() 
         cy.get('.ember-view.gh-btn.gh-btn-primary').click()

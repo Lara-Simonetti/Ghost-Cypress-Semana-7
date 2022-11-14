@@ -9,7 +9,7 @@ describe('Sign In', () => {
         cy.contains('a','Your profile').click()
     })
 
-    it('Edit Admin Account with valid data ', () => {
+    it(' CY01 Edit Admin Account with valid data ', () => {
 
         cy.get('#user-name').clear()
         cy.get('#user-name').type('Xiomara Camacho Medina')
@@ -29,7 +29,7 @@ describe('Sign In', () => {
         cy.get('.gh-btn.gh-btn-primary.gh-btn-icon.gh-btn-green.ember-view')
     })
 
-    it('Edit Admin Account with invalid data: Blank Name ', () => {
+    it(' CY02 Edit Admin Account with invalid data: Blank Name ', () => {
 
         cy.get('#user-name').clear()
         cy.get('#user-name').type(' ')
@@ -42,7 +42,7 @@ describe('Sign In', () => {
     })
 
 
-    it('Change Password: new password and verify new password do not match', () => {
+    it('CY03 Change Password: new password and verify new password do not match', () => {
 
         cy.get('.gh-main').scrollTo('bottom')
         cy.get('#user-password-old').type('Colombia1234!')
@@ -53,7 +53,7 @@ describe('Sign In', () => {
         
     })
 
-    it('Change Password succesfully', () => {
+    it('CY04 Change Password succesfully', () => {
 
         cy.get('.gh-main').scrollTo('bottom')
         cy.get('#user-password-old').type('Colombia1234!')
