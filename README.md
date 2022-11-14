@@ -68,105 +68,105 @@ Por ejemplo:
 
 
 ### Formato Gherkin: 
-CY01: 
+CY01:<br> 
 GIVEN Un usuario ha iniciado sesión en la cuenta de Administrador<br>
 WHEN el usuario edita el perfil <br>
 and los datos editados son válidos <br>
 THEN los datos del usuario son guardados satisfactoriamente <br>
 and el botón de save se muestra en color verde <br>
 
-CY02: 
-GIVEN Un usuario ha iniciado sesión en la cuenta de Administrador
-WHEN el usuario edita el perfil 
-and deja el nombre en blanco
-THEN los datos del usuario no son guardados satisfactoriamente
-and el botón de save se muestra en color rojo
+CY02: <br>
+GIVEN Un usuario ha iniciado sesión en la cuenta de Administrador<br>
+WHEN el usuario edita el perfil <br>
+and deja el nombre en blanco<br>
+THEN los datos del usuario no son guardados satisfactoriamente<br>
+and el botón de save se muestra en color rojo<br>
 
-CY03: 
-GIVEN Un usuario ha iniciado sesión en la cuenta de Administrador
-WHEN el usuario edita la contraseña
-and el usuario ingresa la contraseña vieja
-and el usuario ingresa la contraseña nueva
-and el usuario ingresa la confirmación de la contraseña nueva diferente a contraseña nueva
-THEN la contraseña no se puede guardar satisfactoriamentee
-and se obtiene un mensaje de error Your new passwords do not match
+CY03: <br>
+GIVEN Un usuario ha iniciado sesión en la cuenta de Administrador<br>
+WHEN el usuario edita la contraseña<br>
+and el usuario ingresa la contraseña vieja<br>
+and el usuario ingresa la contraseña nueva<br>
+and el usuario ingresa la confirmación de la contraseña nueva diferente a contraseña nueva<br>
+THEN la contraseña no se puede guardar satisfactoriamente <br>
+and se obtiene un mensaje de error Your new passwords do not match<br>
 
-CY04: 
-GIVEN Un usuario ha iniciado sesión en la cuenta de Administrador
-WHEN el usuario edita la contraseña
-and el usuario ingresa la contraseña vieja
-and el usuario ingresa la contraseña nueva
-and el usuario ingresa la confirmación de la contraseña nueva igual a contraseña nueva
-THEN la contraseña se puede guardar satisfactoriamentee
-and se obtiene un mensaje de validación Password updated
+CY04: <br>
+GIVEN Un usuario ha iniciado sesión en la cuenta de Administrador<br>
+WHEN el usuario edita la contraseña<br>
+and el usuario ingresa la contraseña vieja<br>
+and el usuario ingresa la contraseña nueva<br>
+and el usuario ingresa la confirmación de la contraseña nueva igual a contraseña nueva<br>
+THEN la contraseña se puede guardar satisfactoriamente<br>
+and se obtiene un mensaje de validación Password updated<br>
 
-CY05: 
-GIVEN Un usuario ha iniciado sesión en la cuenta de Administrador
-WHEN da click en crear un nuevo post
-and el usuario solo ingresa el título del post
-and el usuario no completa el proceso dando click al botón de Drafts
-THEN el post debe aparecer en la lista de drafts 
+CY05: <br>
+GIVEN Un usuario ha iniciado sesión en la cuenta de Administrador<br>
+WHEN da click en crear un nuevo post<br>
+and el usuario solo ingresa el título del post<br>
+and el usuario no completa el proceso dando click al botón de Drafts<br>
+THEN el post debe aparecer en la lista de drafts <br>
 
-CY06: 
-GIVEN Un usuario ha iniciado sesión en la cuenta de Administrador
-WHEN da click en crear un nuevo post
-and el usuario diligencia todos los campos mandatorios del post
-and el usuario da click en publish
-and el usuario da click Continue, Final review
-and el usuario da click en Publish post right now
-and el usuario da click sobre el recuadro del post creado
-THEN el post debe ser publicado inmediatamente en el sitio web
-and debe aparecer un mensaje de confirmación Boom. It’s out there
+CY06: <br>
+GIVEN Un usuario ha iniciado sesión en la cuenta de Administrador<br>
+WHEN da click en crear un nuevo post<br>
+and el usuario diligencia todos los campos mandatorios del post<br>
+and el usuario da click en publish<br>
+and el usuario da click Continue, Final review<br>
+and el usuario da click en Publish post right now<br>
+and el usuario da click sobre el recuadro del post creado<br>
+THEN el post debe ser publicado inmediatamente en el sitio web<br>
+and debe aparecer un mensaje de confirmación Boom. It’s out there<br>
 
-CY07: 
-GIVEN Un usuario ha iniciado sesión en la cuenta de Administrador
-WHEN da click en crear un nuevo post
-and el usuario diligencia todos los campos mandatorios del post
-and el usuario da click en publish
-and el usuario da click Continue, Final review
-and el usuario da click en Publish post right now
-and el usuario da click Editor
-and el usuario da click Posts
-and el usuario da click Published 
-THEN el post debe aparecer en la lista de Published
-
-
-
-CY08: 
-GIVEN Un usuario ha iniciado sesión en la cuenta de Administrador
-WHEN da click en crear un nuevo post
-and el usuario diligencia todos los campos mandatorios del post
-and el usuario da click en publish
-and el usuario da click en el dropdown Rightnow
-and el usuario da click en el botón Scheduled for later
-and el usuario da click Continue, Final review
-and el usuario da click en Publish post 
-and el usuario da click en Editor subnav 
-and el usuario da click en Posts subnav 
-and el usuario da click en el botón Scheduled
-THEN El post debe ser creado satisfactoriamente
-and debe ser listado en Shceduled 
-
-CY09: 
-GIVEN Un usuario ha iniciado sesión en la cuenta de Administrador
-WHEN el usuario da click en el botón Tags
-and el usuario da click en el botón new tag
-and el usuario ingresa un nombre válido
-and el usuario ingresa un slug 
-and el usuario ingresa una descripción 
-and el usuario da click en el botón save
-and el usuario da click en el subnav Tags
-THEN El tag debe crearse satisfactoriamente
-and el tag aparece en la lista de tags
+CY07: <br>
+GIVEN Un usuario ha iniciado sesión en la cuenta de Administrador<br>
+WHEN da click en crear un nuevo post<br>
+and el usuario diligencia todos los campos mandatorios del post<br>
+and el usuario da click en publish<br>
+and el usuario da click Continue, Final review<br>
+and el usuario da click en Publish post right now<br>
+and el usuario da click Editor<br>
+and el usuario da click Posts<br>
+and el usuario da click Published <br>
+THEN el post debe aparecer en la lista de Published<br>
 
 
-CY10: 
-GIVEN Un usuario ha iniciado sesión en la cuenta de Administrador
-WHEN el usuario da click en el botón Tags
-and el usuario da click en el botón new tag
-and el usuario ingresa un nombre en blanco 
-and el usuario da click en el botón save
-THEN El tag no debe crearse satisfactoriamente
-and aparece el mensaje de error You must specify a name for the tag
+
+CY08: <br>
+GIVEN Un usuario ha iniciado sesión en la cuenta de Administrador<br>
+WHEN da click en crear un nuevo post<br>
+and el usuario diligencia todos los campos mandatorios del post<br>
+and el usuario da click en publish<br>
+and el usuario da click en el dropdown Rightnow<br>
+and el usuario da click en el botón Scheduled for later<br>
+and el usuario da click Continue, Final review<br>
+and el usuario da click en Publish post <br>
+and el usuario da click en Editor subnav <br>
+and el usuario da click en Posts subnav <br>
+and el usuario da click en el botón Scheduled<br>
+THEN El post debe ser creado satisfactoriamente<br>
+and debe ser listado en Shceduled <br>
+
+CY09: <br>
+GIVEN Un usuario ha iniciado sesión en la cuenta de Administrador<br>
+WHEN el usuario da click en el botón Tags<br>
+and el usuario da click en el botón new tag<br>
+and el usuario ingresa un nombre válido<br>
+and el usuario ingresa un slug <br>
+and el usuario ingresa una descripción <br>
+and el usuario da click en el botón save<br>
+and el usuario da click en el subnav Tags<br>
+THEN El tag debe crearse satisfactoriamente<br>
+and el tag aparece en la lista de tags<br>
+
+
+CY10: <br>
+GIVEN Un usuario ha iniciado sesión en la cuenta de Administrador<br>
+WHEN el usuario da click en el botón Tags<br>
+and el usuario da click en el botón new tag<br>
+and el usuario ingresa un nombre en blanco <br>
+and el usuario da click en el botón save<br>
+THEN El tag no debe crearse satisfactoriamente<br>
+and aparece el mensaje de error You must specify a name for the tag<br>
 
 
