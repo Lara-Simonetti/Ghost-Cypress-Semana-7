@@ -57,7 +57,7 @@ describe('Sign In', () => {
 
         cy.get('.gh-main').scrollTo('bottom')
         cy.get('#user-password-old').type('Colombia1234!')
-        cy.get('#user-password-new').type('Colombia1234!')
+        cy.get('#user-password-new').type('Colombia1235!')
         cy.get('#user-new-password-verification').type('Colombia1235!')
         cy.contains('span','Change Password').click()
         cy.contains('span','Password updated')
