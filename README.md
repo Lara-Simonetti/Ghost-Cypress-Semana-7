@@ -69,11 +69,11 @@ Por ejemplo:
 
 ### Formato Gherkin: 
 CY01: 
-GIVEN Un usuario ha iniciado sesión en la cuenta de Administrador
-WHEN el usuario edita el perfil 
-and los datos editados son válidos
-THEN los datos del usuario son guardados satisfactoriamente
-and el botón de save se muestra en color verde
+GIVEN Un usuario ha iniciado sesión en la cuenta de Administrador<br>
+WHEN el usuario edita el perfil <br>
+and los datos editados son válidos <br>
+THEN los datos del usuario son guardados satisfactoriamente <br>
+and el botón de save se muestra en color verde <br>
 
 CY02: 
 GIVEN Un usuario ha iniciado sesión en la cuenta de Administrador
