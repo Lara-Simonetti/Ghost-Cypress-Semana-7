@@ -11,14 +11,19 @@ Entrega de la Semana 5: Pruebas E2E
 
 ## Pasos para ejecutar las pruebas
 ### Instrucciones para ejecutar los Cypress files: editAccount.cy, createPost.cy y createTag.cy
-1. Desplegar ghost localmente y crear manualmente una cuenta de administrador con las siguientes crendenciales: 
+1. Clonar el repositorio 
+2. Pararse en la carpeta local donde se clonó el proyecto
+3. Correr el comando npm install –save-dev cypress en la terminal
+5. Desplegar ghost localmente y crear manualmente una cuenta de administrador con las siguientes crendenciales: 
 - Usuario: jeimmy@gmail.com
 - password: Colombia1234!
-2. Ejecutar los archivos de pruebas en el siguiente orden: 
+6. Ejecutar los archivos de pruebas en el siguiente orden: 
 - createTag.cy
 - createPost.cy
 - editAccount.cy (Este se debe correr de últimas ya que una de las pruebas incluye la validación de cambio de contraseña satisfactoriamente y esto podría afectar las pruebas anteriores que utilizan las mismas credenciales. Es decir ejecutar test escenarios CY01, CY02, CY03 y CY04 de últimas)
-3. Cambiar el valor de la variable baseURL con el link de Ghost desplegado localmente. Porfavor siga exactamente el formato usado y reemplace con sus respectivos puertos sin añadir nada más Ejemplo: http://localhost:2372 . Esta variable se encuentra dentro del file cypress.config.js
+7. Cambiar el valor de la variable baseURL con el link de Ghost desplegado localmente. Porfavor siga exactamente el formato usado y reemplace con sus respectivos puertos sin añadir nada más Ejemplo: http://localhost:2372 . Esta variable se encuentra dentro del file cypress.config.js
+8. Regresar a la terminal y correr el comando: npm run open
+
 
 
 ## Escenarios de Prueba
