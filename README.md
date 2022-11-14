@@ -65,3 +65,108 @@ Por ejemplo:
 | CY18 | Eliminar member | Tener credenciales válidas de una cuenta de administrador | Eliminar una cuenta de member abandonando la página| - Visitar la página de admin - Iniciar sesión - Dar click en el menú Members - Elegir un member ya creado - Dar click al botón con icono de configuración - Dar click en Delete member - Dar click en el botón Delete member - Comprobar que se vea un modal preguntando si se quiere abandonar la página - Dar click en Leave |Se debe haber eliminado la cuenta de member e ir al listado de Member| Positiva|
 | CY19 | Eliminar member | Tener credenciales válidas de una cuenta de administrador | Eliminar una cuenta de member sin abandonar la página| - Visitar la página de admin - Iniciar sesión - Dar click en el menú Members - Elegir un member ya creado - Dar click al botón con icono de configuración - Dar click en Delete member - Dar click en el botón Delete member - Comprobar que se vea un modal preguntando si se quiere abandonar la página - Dar click en Stay |Se debe haber eliminado la cuenta de member y permanecer viendo la información del member eliminado| Positiva|
 | CY20 | Crear member | Tener credenciales válidas de una cuenta de administrador | Crear un member y que aparezca en la lista de members| - Visitar la página de admin - Iniciar sesión - Dar click en el menú Members - Dar click en el botón New member - Ingresar correo electrónico - Ingresar nombre - Dar click en el botón Save - Volver al listado de members - Comprobar que el nuevo member esté listado|El member debe verse reflejado en el listado de members| Positiva|
+
+
+### Formato Gherkin: 
+CY01: 
+GIVEN Un usuario ha iniciado sesión en la cuenta de Administrador
+WHEN el usuario edita el perfil 
+and los datos editados son válidos
+THEN los datos del usuario son guardados satisfactoriamente
+and el botón de save se muestra en color verde
+
+CY02: 
+GIVEN Un usuario ha iniciado sesión en la cuenta de Administrador
+WHEN el usuario edita el perfil 
+and deja el nombre en blanco
+THEN los datos del usuario no son guardados satisfactoriamente
+and el botón de save se muestra en color rojo
+
+CY03: 
+GIVEN Un usuario ha iniciado sesión en la cuenta de Administrador
+WHEN el usuario edita la contraseña
+and el usuario ingresa la contraseña vieja
+and el usuario ingresa la contraseña nueva
+and el usuario ingresa la confirmación de la contraseña nueva diferente a contraseña nueva
+THEN la contraseña no se puede guardar satisfactoriamentee
+and se obtiene un mensaje de error Your new passwords do not match
+
+CY04: 
+GIVEN Un usuario ha iniciado sesión en la cuenta de Administrador
+WHEN el usuario edita la contraseña
+and el usuario ingresa la contraseña vieja
+and el usuario ingresa la contraseña nueva
+and el usuario ingresa la confirmación de la contraseña nueva igual a contraseña nueva
+THEN la contraseña se puede guardar satisfactoriamentee
+and se obtiene un mensaje de validación Password updated
+
+CY05: 
+GIVEN Un usuario ha iniciado sesión en la cuenta de Administrador
+WHEN da click en crear un nuevo post
+and el usuario solo ingresa el título del post
+and el usuario no completa el proceso dando click al botón de Drafts
+THEN el post debe aparecer en la lista de drafts 
+
+CY06: 
+GIVEN Un usuario ha iniciado sesión en la cuenta de Administrador
+WHEN da click en crear un nuevo post
+and el usuario diligencia todos los campos mandatorios del post
+and el usuario da click en publish
+and el usuario da click Continue, Final review
+and el usuario da click en Publish post right now
+and el usuario da click sobre el recuadro del post creado
+THEN el post debe ser publicado inmediatamente en el sitio web
+and debe aparecer un mensaje de confirmación Boom. It’s out there
+
+CY07: 
+GIVEN Un usuario ha iniciado sesión en la cuenta de Administrador
+WHEN da click en crear un nuevo post
+and el usuario diligencia todos los campos mandatorios del post
+and el usuario da click en publish
+and el usuario da click Continue, Final review
+and el usuario da click en Publish post right now
+and el usuario da click Editor
+and el usuario da click Posts
+and el usuario da click Published 
+THEN el post debe aparecer en la lista de Published
+
+
+
+CY08: 
+GIVEN Un usuario ha iniciado sesión en la cuenta de Administrador
+WHEN da click en crear un nuevo post
+and el usuario diligencia todos los campos mandatorios del post
+and el usuario da click en publish
+and el usuario da click en el dropdown Rightnow
+and el usuario da click en el botón Scheduled for later
+and el usuario da click Continue, Final review
+and el usuario da click en Publish post 
+and el usuario da click en Editor subnav 
+and el usuario da click en Posts subnav 
+and el usuario da click en el botón Scheduled
+THEN El post debe ser creado satisfactoriamente
+and debe ser listado en Shceduled 
+
+CY09: 
+GIVEN Un usuario ha iniciado sesión en la cuenta de Administrador
+WHEN el usuario da click en el botón Tags
+and el usuario da click en el botón new tag
+and el usuario ingresa un nombre válido
+and el usuario ingresa un slug 
+and el usuario ingresa una descripción 
+and el usuario da click en el botón save
+and el usuario da click en el subnav Tags
+THEN El tag debe crearse satisfactoriamente
+and el tag aparece en la lista de tags
+
+
+CY10: 
+GIVEN Un usuario ha iniciado sesión en la cuenta de Administrador
+WHEN el usuario da click en el botón Tags
+and el usuario da click en el botón new tag
+and el usuario ingresa un nombre en blanco 
+and el usuario da click en el botón save
+THEN El tag no debe crearse satisfactoriamente
+and aparece el mensaje de error You must specify a name for the tag
+
+
