@@ -17,7 +17,7 @@ Entrega de la Semana 5: Pruebas E2E
 2. Ejecutar los archivos de pruebas en el siguiente orden: 
 - createTag.cy
 - createPost.cy
-- editAccount.cy (Este se debe correr de últimas ya que una de las pruebas incluye la validación de cambio de contraseña satisfactoriamente y esto podría afectar las pruebas anteriores que utilizan las mismas credenciales)
+- editAccount.cy (Este se debe correr de últimas ya que una de las pruebas incluye la validación de cambio de contraseña satisfactoriamente y esto podría afectar las pruebas anteriores que utilizan las mismas credenciales. Es decir ejecutar test escenarios CY01, CY02, CY03 y CY04 de últimas)
 3. Cambiar el valor de la variable baseURL con el link de Ghost desplegado localmente. Porfavor siga exactamente el formato usado y reemplace con sus respectivos puertos sin añadir nada más Ejemplo: http://localhost:2372 . Esta variable se encuentra dentro del file cypress.config.js
 
 
