@@ -1,6 +1,12 @@
 # MISW4103-Semana5-Equipo6 | Pruebas en Cypress
 Entrega de la Semana 5: Pruebas E2E
 
+## Integrantes
+David Borrero Varona d.borrerov@uniandes.edu.co
+Jeimmy Camacho Medina jx.camacho@uniandes.edu.co
+Lara Simonetti l.simonetti@uniandes.edu.co
+Pedro Higuera p.higuera@uniandes.edu.co
+
 ## Funcionalidades
 
 - Editar Cuenta Administrador: En esta funcionalidad se integraron los escenarios positivos y negativos correspondientes a la edición del perfil de una cuenta de administrador. 
