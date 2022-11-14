@@ -170,3 +170,125 @@ THEN El tag no debe crearse satisfactoriamente<br>
 and aparece el mensaje de error You must specify a name for the tag<br>
 
 
+CY11: <br>
+GIVEN Un usuario ha entrado a la página de Ghost<br>
+WHEN el usuario da click en el botón Subscribe<br>
+and el usuario da click en el botón Sign In<br>
+and el usuario ingresa su correo <br>
+and el usuario da click en el botón Continue<br>
+and el usuario no tiene cuenta de member<br>
+THEN El usuario no podrá iniciar sesión como member<br>
+and no aparece el mensaje de Now check your email!<br>
+
+
+CY12: <br>
+GIVEN El admin ha iniciado sesión en la cuenta de Administrador<br>
+WHEN el admin da click en el menú Members<br>
+and el admin da click en el botón New member<br>
+and el admin ingresa el nombre y correo del member <br>
+and el admin da click en el botón Save<br>
+and el usuario ha entrado a la página de Ghost<br>
+and el usuario da click en el botón Subscribe<br>
+and el usuario da click en el botón Sign In<br>
+and el usuario ingresa su correo <br>
+and el usuario da click en el botón Continue<br>
+THEN El usuario podrá iniciar sesión como member<br>
+and no aparece el mensaje de No member exists with this e-mail address. Please sign up first.<br>
+
+
+CY13: <br>
+GIVEN El admin ha iniciado sesión en la cuenta de Administrador<br>
+WHEN el admin da click en el menú Members<br>
+and el admin da click en el botón New member<br>
+and el admin ingresa el nombre del member <br>
+and el admin ingresa el correo del member <br>
+and el correo ya ha sido usado para crear un member<br>
+and el admin da click en el botón Save<br>
+THEN El admin no podrá crear el member<br>
+and aparece el mensaje de Member already exists. Attempting to add member with existing email address<br>
+
+
+CY14: <br>
+GIVEN El admin ha iniciado sesión en la cuenta de Administrador<br>
+WHEN el admin da click en el menú Members<br>
+and el admin da click en el botón New member<br>
+and el admin ingresa el nombre del member <br>
+and el admin ingresa el correo del member <br>
+and el correo no tiene un formato adecuado<br>
+and el admin da click en el botón Save<br>
+THEN El admin no podrá crear el member<br>
+and aparece el mensaje de Invalid Email.<br>
+
+
+CY15: <br>
+GIVEN El admin ha iniciado sesión en la cuenta de Administrador<br>
+WHEN el admin da click en el menú Members<br>
+and el admin da click en el botón New member<br>
+and el admin ingresa el nombre del member <br>
+and el admin ingresa el correo del member <br>
+and el correo no tiene un formato adecuado<br>
+and el admin da click en el botón Save<br>
+and el admin ingresa el correo con formato adecuado <br>
+and el admin da click en el botón Retry <br>
+and el usuario ha entrado a la página de Ghost<br>
+and el usuario da click en el botón Subscribe<br>
+and el usuario da click en el botón Sign In<br>
+and el usuario ingresa su correo <br>
+and el usuario da click en el botón Continue<br>
+THEN El usuario podrá iniciar sesión como member<br>
+and no aparece el mensaje de No member exists with this e-mail address. Please sign up first.<br>
+
+
+CY16: <br>
+GIVEN El admin ha iniciado sesión en la cuenta de Administrador<br>
+WHEN el admin da click en el menú Members<br>
+and el admin da click en un member ya creado<br>
+and el admin da click al botón de acciones <br>
+and el admin da click a la opción de Delete member <br>
+and el admin da click al botón de Delete member<br>
+THEN Se eliminará el member<br>
+and aparece un modal para indicar si se quiere permanecer en la página o no<br>
+
+
+CY17: <br>
+GIVEN El admin ha iniciado sesión en la cuenta de Administrador<br>
+WHEN el admin da click en el menú Members<br>
+and el admin da click en un member ya creado<br>
+and el admin da click al botón de acciones <br>
+and el admin da click a la opción de Delete member <br>
+and el admin da click al botón de Cancel<br>
+THEN No se eliminará el member<br>
+and se muestra la página con la información del member que se intentó eliminar<br>
+
+
+CY18: <br>
+GIVEN El admin ha iniciado sesión en la cuenta de Administrador<br>
+WHEN el admin da click en el menú Members<br>
+and el admin da click en un member ya creado<br>
+and el admin da click al botón de acciones <br>
+and el admin da click a la opción de Delete member <br>
+and el admin da click al botón de Delete member<br>
+and el admin da click al botón de Leave<br>
+THEN Se eliminará el member<br>
+and se muestra la página con el listado de members<br>
+
+
+CY19: <br>
+GIVEN El admin ha iniciado sesión en la cuenta de Administrador<br>
+WHEN el admin da click en el menú Members<br>
+and el admin da click en un member ya creado<br>
+and el admin da click al botón de acciones <br>
+and el admin da click a la opción de Delete member <br>
+and el admin da click al botón de Delete member<br>
+and el admin da click al botón de Stay<br>
+THEN Se eliminará el member<br>
+and se muestra la página con la información del member que se eliminó<br>
+
+
+CY20: <br>
+GIVEN El admin ha iniciado sesión en la cuenta de Administrador<br>
+WHEN el admin da click en el menú Members<br>
+and el admin da click en el botón New member<br>
+and el admin ingresa el nombre y correo del member <br>
+and el admin da click en el botón Save<br>
+THEN El member deberá aparecer en el listado de members<br>
