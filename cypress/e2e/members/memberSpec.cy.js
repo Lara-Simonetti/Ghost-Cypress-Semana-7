@@ -5,7 +5,7 @@ describe('My First Test', () => {
         password: Cypress.env('password')
       })
     })
-    it('Try to subscribe with an non-created member', () => {
+    it('CY11 Try to subscribe with an non-created member', () => {
       cy.visit('/')
       cy.wait(1000)
       cy.get('a.gh-head-button.gh-portal-close').click({ force: true })
@@ -15,7 +15,7 @@ describe('My First Test', () => {
       cy.iframe('#ghost-portal-root > div:first > iframe[title=portal-popup]').should('not.contain', 'Now check your email!')
     })
   
-    it('Subscribe with a new member', () => {
+    it('CY12 Subscribe with a new member', () => {
       cy.visit('/ghost/dashboard')
       cy.wait(1000)
       cy.contains('li','Members').click()
@@ -34,7 +34,7 @@ describe('My First Test', () => {
       cy.iframe('#ghost-portal-root > div:first > iframe[title=portal-popup]').should('not.contain', 'No member exists with this e-mail address. Please sign up first.')
     })
   
-    it('Try to create a member with an used email ', () => {
+    it('CY13 Try to create a member with an used email ', () => {
       cy.visit('/ghost/dashboard')
       cy.wait(1000)
       cy.contains('li','Members').click()
@@ -49,7 +49,7 @@ describe('My First Test', () => {
       cy.get('p.response').should('contain','Member already exists. Attempting to add member with existing email address')
     })
   
-    it('Try to create a member with a wrong format email ', () => {
+    it('CY14 Try to create a member with a wrong format email ', () => {
       cy.visit('/ghost/dashboard')
       cy.wait(1000)
       cy.contains('li','Members').click()
@@ -64,7 +64,7 @@ describe('My First Test', () => {
       cy.get('p.response').should('contain','Invalid Email.')
     })
   
-    it('Subscribe with a new member with the retry option ', () => {
+    it('CY15 Subscribe with a new member with the retry option ', () => {
       cy.visit('/ghost/dashboard')
       cy.wait(1000)
       cy.contains('li','Members').click()
@@ -89,7 +89,7 @@ describe('My First Test', () => {
       cy.iframe('#ghost-portal-root > div:first > iframe[title=portal-popup]').should('not.contain', 'No member exists with this e-mail address. Please sign up first.')
     })
   
-    it('Deleting a member', () => {
+    it('CY16 Deleting a member', () => {
       cy.visit('/ghost/dashboard')
       cy.wait(1000)
       cy.contains('li','Members').click()
@@ -102,7 +102,7 @@ describe('My First Test', () => {
       cy.get('.epm-modal-container').should('contain','Are you sure you want to leave this page?')
     })
   
-    it('Cancel deleting a member', () => {
+    it('CY17 Cancel deleting a member', () => {
       cy.visit('/ghost/dashboard')
       cy.wait(1000)
       cy.contains('li','Members').click()
@@ -115,7 +115,7 @@ describe('My First Test', () => {
       cy.get('.epm-modal-container').should('not.exist')
     })
   
-    it('Leave the page when deleting a member', () => {
+    it('CY18 Leave the page when deleting a member', () => {
       cy.visit('/ghost/dashboard')
       cy.wait(1000)
       cy.contains('li','Members').click()
@@ -138,7 +138,7 @@ describe('My First Test', () => {
       cy.url().should('include','/ghost/#/members')
     })
   
-    it('Stay in page when deleting a member', () => {
+    it('CY19 Stay in page when deleting a member', () => {
       cy.visit('/ghost/dashboard')
       cy.wait(1000)
       cy.contains('li','Members').click()
@@ -160,7 +160,7 @@ describe('My First Test', () => {
       cy.get('.epm-modal-container').should('not.exist')
     })
   
-    it('List the created member', () => {
+    it('CY20 List the created member', () => {
       cy.visit('/ghost/dashboard')
       cy.wait(1000)
       cy.contains('li','Members').click()
