@@ -10,11 +10,14 @@ Entrega de la Semana 5: Pruebas E2E
 - Creación de Tags: En esta funcionalidad se probaron escenarios de la creación de tags para post.
 
 ## Pasos para ejecutar las pruebas
-### Cypress files: editAccount.cy, createPost.cy y createTag.cy
+### Instrucciones para ejecutar los Cypress files: editAccount.cy, createPost.cy y createTag.cy
 1. Desplegar ghost localmente y crear manualmente una cuenta de administrador con las siguientes crendenciales: 
 - Usuario: jeimmy@gmail.com
 - password: Colombia1234!
-2. 
+2. Ejecutar los archivos de pruebas en el siguiente orden: 
+- createTag.cy
+- createPost.cy
+- editAccount.cy (Este se debe correr de últimas ya que una de las pruebas incluye la validación de cambio de contraseña satisfactoriamente y esto podría afectar las pruebas anteriores que utilizan las mismas credenciales)
 
 
 ## Escenarios de Prueba
