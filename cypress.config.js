@@ -5,7 +5,12 @@ module.exports = defineConfig({
     setupNodeEvents(on, config) {
       // implement node event listeners here
     },
-    baseUrl:'http://localhost:2372' 
-      
+    baseUrl:'http://localhost:2368',
+    defaultCommandTimeout: 10000,
+    chromeWebSecurity: false,
+    env: {
+      username: "",
+      password: "",
+    }
   }
 })

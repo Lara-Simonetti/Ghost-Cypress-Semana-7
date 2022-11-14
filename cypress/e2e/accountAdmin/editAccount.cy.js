@@ -1,8 +1,8 @@
 describe('Sign In', () => {
     beforeEach(() => {
         cy.visit('/ghost/#/signin');
-        cy.get('#identification').type('jeimmy@gmail.com')
-        cy.get('#password').type('Colombia1234!')
+        cy.get('#identification').type(Cypress.env('username'))
+        cy.get('#password').type(Cypress.env('password'))
         cy.get('#ember7').click()
         cy.get('.flex-auto.flex.items-center').click() 
         cy.contains('a','Your profile').should('be.visible')
@@ -45,7 +45,7 @@ describe('Sign In', () => {
     it('CY03 Change Password: new password and verify new password do not match', () => {
 
         cy.get('.gh-main').scrollTo('bottom')
-        cy.get('#user-password-old').type('Colombia1234!')
+        cy.get('#user-password-old').type(Cypress.env('password'))
         cy.get('#user-password-new').type('Inglaterra1234!')
         cy.get('#user-new-password-verification').type('Alemania1234!')
         cy.contains('span','Change Password').click()
@@ -56,7 +56,7 @@ describe('Sign In', () => {
     it('CY04 Change Password succesfully', () => {
 
         cy.get('.gh-main').scrollTo('bottom')
-        cy.get('#user-password-old').type('Colombia1234!')
+        cy.get('#user-password-old').type(Cypress.env('password'))
         cy.get('#user-password-new').type('Colombia1235!')
         cy.get('#user-new-password-verification').type('Colombia1235!')
         cy.contains('span','Change Password').click()

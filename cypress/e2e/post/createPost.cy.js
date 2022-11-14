@@ -1,8 +1,8 @@
 describe('Sign In', () => {
     beforeEach(() => {
         cy.visit('/ghost/#/signin');
-        cy.get('#identification').type('jeimmy@gmail.com')
-        cy.get('#password').type('Colombia1234!')
+        cy.get('#identification').type(Cypress.env('username'))
+        cy.get('#password').type(Cypress.env('password'))
         cy.get('#ember7').click()
         cy.wait(1000)
         cy.get('a[href="#/editor/post/"]').click()  
