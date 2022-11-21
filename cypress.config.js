@@ -9,8 +9,8 @@ module.exports = defineConfig({
     defaultCommandTimeout: 10000,
     chromeWebSecurity: false,
     env: {
-      username: "",
-      password: "",
+      username: "jeimmy@gmail.com",
+      password: "Colombia1234!",
     }
   }
-})
+}) 
