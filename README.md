@@ -1,5 +1,8 @@
-# MISW4103-Semana5-Equipo6 | Pruebas en Cypress
-Entrega de la Semana 5: Pruebas E2E
+# MISW4103-Semana6-Equipo6 | Pruebas en Cypress
+Entrega de la Semana 6: Pruebas E2E & Regresión visual
+
+## Video
+https://drive.google.com/file/d/1JulWpUHkG3XiGgza1lmhvI-tZGQo1ryJ/view?usp=sharing
 
 ## Integrantes
 David Borrero Varona d.borrerov@uniandes.edu.co
