@@ -2,7 +2,7 @@
 Entrega de la Semana 6: Pruebas E2E & Regresión visual
 
 ## Video
-https://drive.google.com/file/d/1JulWpUHkG3XiGgza1lmhvI-tZGQo1ryJ/view?usp=sharing
+[https://drive.google.com/file/d/1JulWpUHkG3XiGgza1lmhvI-tZGQo1ryJ/view?usp=sharing](https://drive.google.com/file/d/1JulWpUHkG3XiGgza1lmhvI-tZGQo1ryJ/view?usp=sharing)
 
 ## Integrantes
 David Borrero Varona d.borrerov@uniandes.edu.co
