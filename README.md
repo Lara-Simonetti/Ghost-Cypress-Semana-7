@@ -19,7 +19,42 @@ Pedro Higuera p.higuera@uniandes.edu.co
 
 - Eliminar member: Se elimina una cuenta creada para un usuario
 
+### SEMANA 6 
+### Instrucciones para ejecutar las pruebas de Cypress files: 
+Ghost Versión Antigua: 
+1. Clonar el repositorio 
+2. Pararse en la carpeta local donde se clonó el proyecto
+3. Correr el comando npm install en la terminal
+5. Desplegar ghost localmente y crear manualmente una cuenta de administrador. Las credenciales creadas deben ser colocadas en
+los respectivos campos del archivo cypress.config.js 
+Por ejemplo: 
+- usuario: jeimmy@gmail.com
+- password: Colombia1234!
+6. Cambiar el valor de la variable entrega "open:entrega5": "cypress open --env ghostVersion=entrega5 --config baseUrl=http://localhost:2368" en el archivo package.json  con el link de Ghost desplegado localmente.
+7. Regresar a la terminal y correr el comando: npm run open:entrega5
+8. Ejecutar los archivos de pruebas del folder: oldGhostTestCases en el siguiente orden: 
+- createTag.cy
+- editAccount.cy (Este se debe correr de últimas ya que una de las pruebas incluye la validación de cambio de contraseña satisfactoriamente y esto podría afectar las pruebas anteriores que utilizan las mismas credenciales. Es decir ejecutar test escenarios CY01, CY02, CY03 y CY04 de últimas)
 
+
+Ghost Versión Nueva: 
+1. Clonar el repositorio 
+2. Instalar Docker 
+3. Correr en la terminal el comando: docker run -d -e url=http://localhost:3456 -p 3456:2368 --name ghost_3.42 ghost:3.42
+4. Desplegar Ghost versión nueva manualmente y crear Las credenciales con los siguientes datos:
+- usuario: jeimmy@gmail.com
+- password: Colombia1234!
+5. Cambiar el valor de la variable entrega  "open:entrega6": "cypress open --env ghostVersion=entrega6 --config baseUrl=http://localhost:3456" en el archivo package.json  con el link de Ghost desplegado localmente.
+7. Regresar a la terminal y correr el comando: npm run open:entrega6
+8. Ejecutar los archivos de pruebas del folder newGhostTestCasesen el siguiente orden: 
+- createTag.cy
+- editAccount.cy (Este se debe correr de últimas ya que una de las pruebas incluye la validación de cambio de contraseña satisfactoriamente y esto podría afectar las pruebas anteriores que utilizan las mismas credenciales. Es decir ejecutar test escenarios CY01, CY02, CY03 y CY04 de últimas)
+9. Después de ejecutar las pruebas de ambas versiones de Ghost Ejecutar el comando node index.js para generación de reporte
+10. Abrir el reporte report.HTML en un browser
+
+
+
+### SEMANA 5 
 ## Pasos para ejecutar las pruebas
 ### Instrucciones para ejecutar los Cypress files: editAccount.cy, createPost.cy y createTag.cy
 1. Clonar el repositorio 
@@ -37,6 +72,7 @@ Por ejemplo:
 - createPost.cy
 - memberSpec.cy
 - editAccount.cy (Este se debe correr de últimas ya que una de las pruebas incluye la validación de cambio de contraseña satisfactoriamente y esto podría afectar las pruebas anteriores que utilizan las mismas credenciales. Es decir ejecutar test escenarios CY01, CY02, CY03 y CY04 de últimas)
+9. Ejecutar el comando node index.js para generación de reporte
 
 
 
