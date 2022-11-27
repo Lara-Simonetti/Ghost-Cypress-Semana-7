@@ -47,4 +47,6 @@ descripción
 ### Escenario aleatorio
 descripción
 
+## Registro de incidencias
+[Link al registro de incidencias.](https://github.com/users/Lara-Simonetti/projects/3)
 
