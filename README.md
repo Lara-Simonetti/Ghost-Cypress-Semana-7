@@ -25,15 +25,15 @@ Pedro Higuera p.higuera@uniandes.edu.co
 ### SEMANA 7
 ## Pasos para ejecutar las pruebas
 1. Verificar que la versión de Ghost a probar sea 5.19.0.
-1. Clonar el repositorio.
-2. Pararse en la carpeta local donde se clonó el proyecto
-3. Correr el comando npm install en la terminal
+2. Clonar el repositorio.
+3. Pararse en la carpeta local donde se clonó el proyecto
+4. Correr el comando npm install en la terminal
 5. Desplegar ghost localmente y crear manualmente una cuenta de administrador. Las credenciales creadas deben ser colocadas en
 los respectivos campos del archivo cypress.config.js 
 Por ejemplo: 
 - usuario: jeimmy@gmail.com
 - password: Colombia1234!
-6. Cambiar el valor de la variable baseURL con el link de Ghost desplegado localmente. Porfavor siga exactamente el formato usado y reemplace con sus respectivos puertos sin añadir nada más (ejemplo: http://localhost:2372.) Esta variable se encuentra dentro del file cypress.config.js.
+6. Cambiar el valor de la variable baseURL con el link de Ghost desplegado localmente. Porfavor siga exactamente el formato usado y reemplace con sus respectivos puertos sin añadir nada más (ejemplo: http://localhost:2372). Esta variable se encuentra dentro del file cypress.config.js.
 7. Regresar a la terminal y correr el comando: npm run open
 8. Ejecutar los archivos de pruebas, corriento editAccount.cy por último. (Este se debe correr de últimas ya que una de las pruebas incluye la validación de cambio de contraseña satisfactoriamente y esto podría afectar las pruebas anteriores que utilizan las mismas credenciales.)
 9. Ejecutar el comando node index.js para generación de reporte
