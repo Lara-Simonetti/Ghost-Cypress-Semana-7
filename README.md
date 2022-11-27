@@ -22,7 +22,6 @@ Pedro Higuera p.higuera@uniandes.edu.co
 
 - Eliminar member: Se elimina una cuenta creada para un usuario
 
-### SEMANA 7
 ## Pasos para ejecutar las pruebas
 1. Verificar que la versión de Ghost a probar sea 5.19.0.
 2. Clonar el repositorio.
