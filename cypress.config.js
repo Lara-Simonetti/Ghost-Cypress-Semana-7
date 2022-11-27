@@ -8,6 +8,7 @@ module.exports = defineConfig({
     },
     defaultCommandTimeout: 10000,
     chromeWebSecurity: false,
+    baseUrl:'http://localhost:2368',
     env: {
       username: "jeimmy@gmail.com",
       password: "Colombia1234!",
