@@ -1,5 +1,5 @@
-# MISW4103-Semana6-Equipo6 | Pruebas en Cypress
-Entrega de la Semana 7: Generación de datos aleatorios
+# Ghost-Cypress-Semana-7 | Generación de datos aleatorios
+Entrega de la Semana 7 de MISW4103.
 
 ## Integrantes
 David Borrero Varona d.borrerov@uniandes.edu.co
