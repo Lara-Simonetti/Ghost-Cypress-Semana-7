@@ -36,12 +36,12 @@ function getInvalidData(){
     };
 
     for(var i=0; i < 5; i++){
-        var newData = faker.faker.git.commitSha();
+        var newData = faker.git.commitSha();
         invalidDataPool.push(newData);
     };
 
     for(var i=0; i < 5; i++){
-        var newData = faker.faker.git.commitSha();
+        var newData = faker.git.commitSha();
         invalidDataPool.push(newData);
     };
 
@@ -189,7 +189,6 @@ describe('Sign In', () => {
     
 })
 
-//New tests - standard posts
 it('CY21 Create a new Post Successfully and validate on website', () => {
     const testId = 'CY21'
     let screenshotId = 1
