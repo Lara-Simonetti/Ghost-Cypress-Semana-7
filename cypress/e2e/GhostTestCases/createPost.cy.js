@@ -6,6 +6,7 @@ faker.seed(123);
 
 const titlesDataPool = [];
 const blogTextDataPool = [];
+const invalidDataPool = [];
 
 function getTitles(){
     for(var i=0; i < 40; i++){
@@ -21,8 +22,39 @@ function getBlogText(){
     };
 }
 
+function getInvalidData(){
+    var blankSpace = "";
+    var breakSpace = "\n";
+
+    for(var i=0; i < 5; i++){
+        invalidDataPool.push(blankSpace);
+        blankSpace+=" ";
+    }
+    for(var i=0; i < 5; i++){
+        var newData = faker.finance.currencySymbol()*10;
+        invalidDataPool.push(newData);
+    };
+
+    for(var i=0; i < 5; i++){
+        var newData = faker.faker.git.commitSha();
+        invalidDataPool.push(newData);
+    };
+
+    for(var i=0; i < 5; i++){
+        var newData = faker.faker.git.commitSha();
+        invalidDataPool.push(newData);
+    };
+
+    for(var i=0; i < 5; i++){
+        invalidDataPool.push(breakSpace);
+        breakSpace+="\n";
+    };
+    
+}
+
 getTitles();
 getBlogText();
+getInvalidData();
 
 // Test code
 const baseUrl = Cypress.env('ghostVersion') || 'new';
@@ -293,67 +325,55 @@ it('CY25 Create a new Post Successfully and validate on website', () => {
         
 })
 
-it('CY26 Create a new Post Successfully and validate on website', () => {
+it('CY26 Create a draft Post and Verify Draft List', () => {
     const testId = 'CY26'
     let screenshotId = 1
     let randomString= titlesDataPool[9] 
-    cy.get('textarea').type(randomString)
-    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)        
+    cy.get('textarea').type(randomString)   
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)     
     cy.get('.koenig-editor__editor.__mobiledoc-editor.__has-no-content').type(blogTextDataPool[9]) 
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)  
-    cy.get('.gh-btn.gh-btn-editor.darkgrey.gh-publish-trigger').click()
+    cy.contains('span','Posts').click()
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
-    cy.get('.green').should('be.visible')
+    cy.wait(1000)
+    cy.contains('span','Drafts').click()
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
-    cy.contains('span','Continue, final review').click()
+    cy.wait(1000)
+    cy.contains('h2','Drafts').should('be.visible')
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
-    cy.contains('span','Publish post, right now').should('be.visible')
-    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
-    cy.contains('span','Publish post, right now').click()
-    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
-    cy.contains('span','Boom. It’s out there.').should('be.visible')
-    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
-    cy.visit('/'+randomString+'/');
-    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
-    cy.contains('h1',randomString)
+    cy.contains('h3',randomString).should('be.visible')
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
         
 })
 
-it('CY27 Create a new Post Successfully and validate on website', () => {
+it('CY27 Create a draft Post and Verify Draft List', () => {
     const testId = 'CY27'
     let screenshotId = 1
     let randomString= titlesDataPool[10] 
-    cy.get('textarea').type(randomString)
-    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)        
+    cy.get('textarea').type(randomString)   
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)     
     cy.get('.koenig-editor__editor.__mobiledoc-editor.__has-no-content').type(blogTextDataPool[10]) 
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)  
-    cy.get('.gh-btn.gh-btn-editor.darkgrey.gh-publish-trigger').click()
+    cy.contains('span','Posts').click()
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
-    cy.get('.green').should('be.visible')
+    cy.wait(1000)
+    cy.contains('span','Drafts').click()
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
-    cy.contains('span','Continue, final review').click()
+    cy.wait(1000)
+    cy.contains('h2','Drafts').should('be.visible')
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
-    cy.contains('span','Publish post, right now').should('be.visible')
-    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
-    cy.contains('span','Publish post, right now').click()
-    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
-    cy.contains('span','Boom. It’s out there.').should('be.visible')
-    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
-    cy.visit('/'+randomString+'/');
-    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
-    cy.contains('h1',randomString)
+    cy.contains('h3',randomString).should('be.visible')
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
         
 })
 
-it('CY28 Create a new Post Successfully and validate on website', () => {
+it('CY28 Create a new Post Successfully and validate on website, switching title and text data pools', () => {
     const testId = 'CY28'
     let screenshotId = 1
-    let randomString= titlesDataPool[11] 
+    let randomString= blogTextDataPool[11] 
     cy.get('textarea').type(randomString)
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)        
-    cy.get('.koenig-editor__editor.__mobiledoc-editor.__has-no-content').type(blogTextDataPool[11]) 
+    cy.get('.koenig-editor__editor.__mobiledoc-editor.__has-no-content').type(titlesDataPool[11]) 
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)  
     cy.get('.gh-btn.gh-btn-editor.darkgrey.gh-publish-trigger').click()
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
@@ -366,7 +386,7 @@ it('CY28 Create a new Post Successfully and validate on website', () => {
     cy.contains('span','Publish post, right now').click()
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
     cy.contains('span','Boom. It’s out there.').should('be.visible')
-    cy.screenshot(`${basenpmUrl}/${testId}-${screenshotId++}`)
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
     cy.visit('/'+randomString+'/');
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
     cy.contains('h1',randomString)
@@ -374,3 +394,518 @@ it('CY28 Create a new Post Successfully and validate on website', () => {
         
 })
 
+it('CY29 Create a new Post Successfully and validate on website, switching title and text data pools', () => {
+    const testId = 'CY29'
+    let screenshotId = 1
+    let randomString= blogTextDataPool[12] 
+    cy.get('textarea').type(randomString)
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)        
+    cy.get('.koenig-editor__editor.__mobiledoc-editor.__has-no-content').type(titlesDataPool[12]) 
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)  
+    cy.get('.gh-btn.gh-btn-editor.darkgrey.gh-publish-trigger').click()
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.get('.green').should('be.visible')
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.contains('span','Continue, final review').click()
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.contains('span','Publish post, right now').should('be.visible')
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.contains('span','Publish post, right now').click()
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.contains('span','Boom. It’s out there.').should('be.visible')
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.visit('/'+randomString+'/');
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.contains('h1',randomString)
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+        
+})
+
+it('CY30 Create a draft Post and Verify Draft List, switching title and text data pools', () => {
+    const testId = 'CY30'
+    let screenshotId = 1
+    let randomString= blogTextDataPool[13] 
+    cy.get('textarea').type(randomString)   
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)     
+    cy.get('.koenig-editor__editor.__mobiledoc-editor.__has-no-content').type(titlesDataPool[13]) 
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)  
+    cy.contains('span','Posts').click()
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.wait(1000)
+    cy.contains('span','Drafts').click()
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.wait(1000)
+    cy.contains('h2','Drafts').should('be.visible')
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.contains('h3',randomString).should('be.visible')
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+
+})
+
+it('CY31 Create a draft Post and Verify Draft List, switching title and text data pools', () => {
+    const testId = 'CY30'
+    let screenshotId = 1
+    let randomString= blogTextDataPool[14] 
+    cy.get('textarea').type(randomString)   
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)     
+    cy.get('.koenig-editor__editor.__mobiledoc-editor.__has-no-content').type(titlesDataPool[14]) 
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)  
+    cy.contains('span','Posts').click()
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.wait(1000)
+    cy.contains('span','Drafts').click()
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.wait(1000)
+    cy.contains('h2','Drafts').should('be.visible')
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.contains('h3',randomString).should('be.visible')
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+
+})
+
+it('CY32 Create a new Post Successfully and Verify Published List', () => {
+    const testId = 'CY32'
+    let screenshotId = 1
+    let randomString= titlesDataPool[15] 
+    cy.get('textarea').type(randomString)
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)        
+    cy.get('.koenig-editor__editor.__mobiledoc-editor.__has-no-content').type(blogTextDataPool[15])
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)   
+    cy.get('.gh-btn.gh-btn-editor.darkgrey.gh-publish-trigger').click()
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.get('.green').should('be.visible')
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.contains('span','Continue, final review').click()
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.contains('span','Publish post, right now').should('be.visible')
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.contains('span','Publish post, right now').click()
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.contains('span','Boom. It’s out there.').should('be.visible')
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.contains('span','Editor').click()
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.contains('span','Posts').click()
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.contains('span','Published').click()
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.contains('h2','Published').should('be.visible')
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.contains('h3',randomString).should('be.visible')
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+        
+})
+
+it('CY33 Create a new Post Successfully and Verify Published List, switching title and text data pools', () => {
+    const testId = 'CY33'
+    let screenshotId = 1
+    let randomString= blogTextDataPool[16] 
+    cy.get('textarea').type(randomString)
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)        
+    cy.get('.koenig-editor__editor.__mobiledoc-editor.__has-no-content').type(titlesDataPool[16])
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)   
+    cy.get('.gh-btn.gh-btn-editor.darkgrey.gh-publish-trigger').click()
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.get('.green').should('be.visible')
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.contains('span','Continue, final review').click()
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.contains('span','Publish post, right now').should('be.visible')
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.contains('span','Publish post, right now').click()
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.contains('span','Boom. It’s out there.').should('be.visible')
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.contains('span','Editor').click()
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.contains('span','Posts').click()
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.contains('span','Published').click()
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.contains('h2','Published').should('be.visible')
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.contains('h3',randomString).should('be.visible')
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+        
+})
+
+it('CY34 Create a new Post Successfully and Verify Published List, switching title and text data pools', () => {
+    const testId = 'CY34'
+    let screenshotId = 1
+    let randomString= blogTextDataPool[17] 
+    cy.get('textarea').type(randomString)
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)        
+    cy.get('.koenig-editor__editor.__mobiledoc-editor.__has-no-content').type(titlesDataPool[17])
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)   
+    cy.get('.gh-btn.gh-btn-editor.darkgrey.gh-publish-trigger').click()
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.get('.green').should('be.visible')
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.contains('span','Continue, final review').click()
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.contains('span','Publish post, right now').should('be.visible')
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.contains('span','Publish post, right now').click()
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.contains('span','Boom. It’s out there.').should('be.visible')
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.contains('span','Editor').click()
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.contains('span','Posts').click()
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.contains('span','Published').click()
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.contains('h2','Published').should('be.visible')
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.contains('h3',randomString).should('be.visible')
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+        
+})
+
+it('CY35 Create a new Post Successfully and Verify Published List with Invalid Data', () => {
+    const testId = 'CY35'
+    let screenshotId = 1
+    let randomString= invalidDataPool[1] 
+    cy.get('textarea').type(randomString)
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)        
+    cy.get('.koenig-editor__editor.__mobiledoc-editor.__has-no-content').type(invalidDataPool[-1])
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)   
+    cy.get('.gh-btn.gh-btn-editor.darkgrey.gh-publish-trigger').click()
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.get('.green').should('be.visible')
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.contains('span','Continue, final review').click()
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.contains('span','Publish post, right now').should('be.visible')
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.contains('span','Publish post, right now').click()
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.contains('span','Boom. It’s out there.').should('be.visible')
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.contains('span','Editor').click()
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.contains('span','Posts').click()
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.contains('span','Published').click()
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.contains('h2','Published').should('be.visible')
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.contains('h3',randomString).should('be.visible')
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+        
+})
+
+it('CY36 Create a new Post Successfully and Verify Published List with Invalid Data', () => {
+    const testId = 'CY36'
+    let screenshotId = 1
+    let randomString= invalidDataPool[2] 
+    cy.get('textarea').type(randomString)
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)        
+    cy.get('.koenig-editor__editor.__mobiledoc-editor.__has-no-content').type(invalidDataPool[-2])
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)   
+    cy.get('.gh-btn.gh-btn-editor.darkgrey.gh-publish-trigger').click()
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.get('.green').should('be.visible')
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.contains('span','Continue, final review').click()
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.contains('span','Publish post, right now').should('be.visible')
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.contains('span','Publish post, right now').click()
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.contains('span','Boom. It’s out there.').should('be.visible')
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.contains('span','Editor').click()
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.contains('span','Posts').click()
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.contains('span','Published').click()
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.contains('h2','Published').should('be.visible')
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.contains('h3',randomString).should('be.visible')
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+        
+})
+
+it('CY37 Create a new Post Successfully and Verify Published List with Invalid Data', () => {
+    const testId = 'CY37'
+    let screenshotId = 1
+    let randomString= invalidDataPool[3] 
+    cy.get('textarea').type(randomString)
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)        
+    cy.get('.koenig-editor__editor.__mobiledoc-editor.__has-no-content').type(invalidDataPool[-3])
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)   
+    cy.get('.gh-btn.gh-btn-editor.darkgrey.gh-publish-trigger').click()
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.get('.green').should('be.visible')
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.contains('span','Continue, final review').click()
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.contains('span','Publish post, right now').should('be.visible')
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.contains('span','Publish post, right now').click()
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.contains('span','Boom. It’s out there.').should('be.visible')
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.contains('span','Editor').click()
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.contains('span','Posts').click()
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.contains('span','Published').click()
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.contains('h2','Published').should('be.visible')
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.contains('h3',randomString).should('be.visible')
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+        
+})
+
+it('CY38 Create a new Post Successfully with Invalid Data and validate on website', () => {
+    const testId = 'CY38'
+    let screenshotId = 1
+    let randomString= invalidDataPool[4] 
+    cy.get('textarea').type(randomString)
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)        
+    cy.get('.koenig-editor__editor.__mobiledoc-editor.__has-no-content').type(invalidDataPool[-4]) 
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)  
+    cy.get('.gh-btn.gh-btn-editor.darkgrey.gh-publish-trigger').click()
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.get('.green').should('be.visible')
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.contains('span','Continue, final review').click()
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.contains('span','Publish post, right now').should('be.visible')
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.contains('span','Publish post, right now').click()
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.contains('span','Boom. It’s out there.').should('be.visible')
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.visit('/'+randomString+'/');
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.contains('h1',randomString)
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+        
+})
+
+it('CY39 Create a new Post Successfully with Invalid Data and validate on website', () => {
+    const testId = 'CY39'
+    let screenshotId = 1
+    let randomString= invalidDataPool[5] 
+    cy.get('textarea').type(randomString)
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)        
+    cy.get('.koenig-editor__editor.__mobiledoc-editor.__has-no-content').type(invalidDataPool[-5]) 
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)  
+    cy.get('.gh-btn.gh-btn-editor.darkgrey.gh-publish-trigger').click()
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.get('.green').should('be.visible')
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.contains('span','Continue, final review').click()
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.contains('span','Publish post, right now').should('be.visible')
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.contains('span','Publish post, right now').click()
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.contains('span','Boom. It’s out there.').should('be.visible')
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.visit('/'+randomString+'/');
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.contains('h1',randomString)
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+        
+})
+
+it('CY40 Create a new Post Successfully with Invalid Data and validate on website', () => {
+    const testId = 'CY40'
+    let screenshotId = 1
+    let randomString= invalidDataPool[6] 
+    cy.get('textarea').type(randomString)
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)        
+    cy.get('.koenig-editor__editor.__mobiledoc-editor.__has-no-content').type(invalidDataPool[-6]) 
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)  
+    cy.get('.gh-btn.gh-btn-editor.darkgrey.gh-publish-trigger').click()
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.get('.green').should('be.visible')
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.contains('span','Continue, final review').click()
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.contains('span','Publish post, right now').should('be.visible')
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.contains('span','Publish post, right now').click()
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.contains('span','Boom. It’s out there.').should('be.visible')
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.visit('/'+randomString+'/');
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.contains('h1',randomString)
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+        
+})
+
+it('CY41 Create a draft Post with Invalid Data and Verify Draft List', () => {
+    const testId = 'CY41'
+    let screenshotId = 1
+    let randomString= invalidDataPool[7] 
+    cy.get('textarea').type(randomString)   
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)     
+    cy.get('.koenig-editor__editor.__mobiledoc-editor.__has-no-content').type(invalidDataPool[-7]) 
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)  
+    cy.contains('span','Posts').click()
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.wait(1000)
+    cy.contains('span','Drafts').click()
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.wait(1000)
+    cy.contains('h2','Drafts').should('be.visible')
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.contains('h3',randomString).should('be.visible')
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+        
+})
+
+it('CY42 Create a draft Post with Invalid Data and Verify Draft List', () => {
+    const testId = 'CY42'
+    let screenshotId = 1
+    let randomString= invalidDataPool[8] 
+    cy.get('textarea').type(randomString)   
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)     
+    cy.get('.koenig-editor__editor.__mobiledoc-editor.__has-no-content').type(invalidDataPool[-8]) 
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)  
+    cy.contains('span','Posts').click()
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.wait(1000)
+    cy.contains('span','Drafts').click()
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.wait(1000)
+    cy.contains('h2','Drafts').should('be.visible')
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.contains('h3',randomString).should('be.visible')
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+        
+})
+
+it('CY43 Create a draft Post with Invalid Data and Verify Draft List', () => {
+    const testId = 'CY43'
+    let screenshotId = 1
+    let randomString= invalidDataPool[9] 
+    cy.get('textarea').type(randomString)   
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)     
+    cy.get('.koenig-editor__editor.__mobiledoc-editor.__has-no-content').type(invalidDataPool[-9]) 
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)  
+    cy.contains('span','Posts').click()
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.wait(1000)
+    cy.contains('span','Drafts').click()
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.wait(1000)
+    cy.contains('h2','Drafts').should('be.visible')
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.contains('h3',randomString).should('be.visible')
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+        
+})
+
+it('CY44 Create a draft Post with Invalid Data and Verify Draft List', () => {
+    const testId = 'CY44'
+    let screenshotId = 1
+    let randomString= invalidDataPool[10] 
+    cy.get('textarea').type(randomString)   
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)     
+    cy.get('.koenig-editor__editor.__mobiledoc-editor.__has-no-content').type(invalidDataPool[-11]) 
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)  
+    cy.contains('span','Posts').click()
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.wait(1000)
+    cy.contains('span','Drafts').click()
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.wait(1000)
+    cy.contains('h2','Drafts').should('be.visible')
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.contains('h3',randomString).should('be.visible')
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+        
+})
+
+it('CY45 Create a draft Post with Invalid Data and Verify Draft List', () => {
+    const testId = 'CY45'
+    let screenshotId = 1
+    let randomString= invalidDataPool[12] 
+    cy.get('textarea').type(randomString)   
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)     
+    cy.get('.koenig-editor__editor.__mobiledoc-editor.__has-no-content').type(invalidDataPool[-12]) 
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)  
+    cy.contains('span','Posts').click()
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.wait(1000)
+    cy.contains('span','Drafts').click()
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.wait(1000)
+    cy.contains('h2','Drafts').should('be.visible')
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.contains('h3',randomString).should('be.visible')
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+        
+})
+
+it('CY46 Create a draft Post with Invalid Data and Verify Draft List', () => {
+    const testId = 'CY46'
+    let screenshotId = 1
+    let randomString= invalidDataPool[13] 
+    cy.get('textarea').type(randomString)   
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)     
+    cy.get('.koenig-editor__editor.__mobiledoc-editor.__has-no-content').type(invalidDataPool[-13]) 
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)  
+    cy.contains('span','Posts').click()
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.wait(1000)
+    cy.contains('span','Drafts').click()
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.wait(1000)
+    cy.contains('h2','Drafts').should('be.visible')
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.contains('h3',randomString).should('be.visible')
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+        
+})
+
+it('CY47 Create a draft Post with Invalid Data and Verify Draft List', () => {
+    const testId = 'CY47'
+    let screenshotId = 1
+    let randomString= invalidDataPool[14] 
+    cy.get('textarea').type(randomString)   
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)     
+    cy.get('.koenig-editor__editor.__mobiledoc-editor.__has-no-content').type(invalidDataPool[-14]) 
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)  
+    cy.contains('span','Posts').click()
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.wait(1000)
+    cy.contains('span','Drafts').click()
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.wait(1000)
+    cy.contains('h2','Drafts').should('be.visible')
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.contains('h3',randomString).should('be.visible')
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+        
+})
+
+it('CY48 Create a draft Post with Invalid Data and Verify Draft List', () => {
+    const testId = 'CY48'
+    let screenshotId = 1
+    let randomString= invalidDataPool[15] 
+    cy.get('textarea').type(randomString)   
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)     
+    cy.get('.koenig-editor__editor.__mobiledoc-editor.__has-no-content').type(invalidDataPool[-15]) 
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)  
+    cy.contains('span','Posts').click()
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.wait(1000)
+    cy.contains('span','Drafts').click()
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.wait(1000)
+    cy.contains('h2','Drafts').should('be.visible')
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    cy.contains('h3',randomString).should('be.visible')
+    cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+        
+})
