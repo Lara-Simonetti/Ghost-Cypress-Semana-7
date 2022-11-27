@@ -36,3 +36,15 @@ Por ejemplo:
 7. Regresar a la terminal y correr el comando: npm run open
 8. Ejecutar los archivos de pruebas, corriento editAccount.cy por último. (Este se debe correr de últimas ya que una de las pruebas incluye la validación de cambio de contraseña satisfactoriamente y esto podría afectar las pruebas anteriores que utilizan las mismas credenciales.)
 9. Ejecutar el comando node index.js para generación de reporte
+
+## Estrategias de pruebas utilizadas
+### Pool de datos a priori
+descripción
+
+### Pool de datos aleatorio dinámico
+descripción
+
+### Escenario aleatorio
+descripción
+
+
