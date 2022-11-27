@@ -8,7 +8,7 @@ const titlesDataPool = [];
 const blogTextDataPool = [];
 
 function getTitles(){
-    for(var i=0; i < 10; i++){
+    for(var i=0; i < 40; i++){
         var newText = faker.lorem.paragraphs(3);
         blogTextDataPool.push(newText);
     };
