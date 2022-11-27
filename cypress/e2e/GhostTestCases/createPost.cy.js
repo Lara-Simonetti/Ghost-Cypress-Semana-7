@@ -58,6 +58,7 @@ getInvalidData();
 
 // Test code
 const baseUrl = Cypress.env('ghostVersion') || 'new';
+
 describe('Sign In', () => {
     beforeEach(() => {
         cy.visit('/ghost/#/signin');
@@ -110,7 +111,7 @@ describe('Sign In', () => {
         cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
         cy.contains('span','Boom. It’s out there.').should('be.visible')
         cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
-        cy.visit('/'+randomString+'/');
+        cy.visit('/'+randomString.slug()+'/');
         cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
         cy.contains('h1',randomString)
         cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
@@ -136,7 +137,7 @@ describe('Sign In', () => {
         cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
         cy.contains('span','Publish post, right now').click()
         cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
-        cy.contains('span','Boom. It’s out there.').should('be.visible')
+        cy.contains('span','All set!').should('be.visible')
         cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
         cy.contains('span','Editor').click()
         cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
@@ -171,7 +172,7 @@ describe('Sign In', () => {
         cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
         cy.get('.gh-btn.gh-btn-large.gh-btn-pulse.ember-view').click()
         cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
-        cy.contains('span','All set!').should('be.visible')
+        cy.contains('span','Ready, set, publish.').should('be.visible')
         cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
         cy.contains('span','Editor').click()
         cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
@@ -187,7 +188,7 @@ describe('Sign In', () => {
         
     })
     
-})
+
 
 it('CY21 Create a new Post Successfully and validate on website', () => {
     const testId = 'CY21'
@@ -209,7 +210,7 @@ it('CY21 Create a new Post Successfully and validate on website', () => {
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
     cy.contains('span','Boom. It’s out there.').should('be.visible')
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
-    cy.visit('/'+randomString+'/');
+    cy.visit('/'+randomString.slug()+'/');
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
     cy.contains('h1',randomString)
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
@@ -236,7 +237,7 @@ it('CY22 Create a new Post Successfully and validate on website', () => {
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
     cy.contains('span','Boom. It’s out there.').should('be.visible')
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
-    cy.visit('/'+randomString+'/');
+    cy.visit('/'+randomString.slug()+'/');
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
     cy.contains('h1',randomString)
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
@@ -263,7 +264,7 @@ it('CY23 Create a new Post Successfully and validate on website', () => {
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
     cy.contains('span','Boom. It’s out there.').should('be.visible')
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
-    cy.visit('/'+randomString+'/');
+    cy.visit('/'+randomString.slug()+'/');
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
     cy.contains('h1',randomString)
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
@@ -290,7 +291,7 @@ it('CY24 Create a new Post Successfully and validate on website', () => {
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
     cy.contains('span','Boom. It’s out there.').should('be.visible')
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
-    cy.visit('/'+randomString+'/');
+    cy.visit('/'+randomString.slug()+'/');
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
     cy.contains('h1',randomString)
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
@@ -317,7 +318,7 @@ it('CY25 Create a new Post Successfully and validate on website', () => {
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
     cy.contains('span','Boom. It’s out there.').should('be.visible')
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
-    cy.visit('/'+randomString+'/');
+    cy.visit('/'+randomString.slug()+'/');
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
     cy.contains('h1',randomString)
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
@@ -386,7 +387,7 @@ it('CY28 Create a new Post Successfully and validate on website, switching title
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
     cy.contains('span','Boom. It’s out there.').should('be.visible')
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
-    cy.visit('/'+randomString+'/');
+    cy.visit('/'+randomString.slug()+'/');
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
     cy.contains('h1',randomString)
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
@@ -413,7 +414,7 @@ it('CY29 Create a new Post Successfully and validate on website, switching title
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
     cy.contains('span','Boom. It’s out there.').should('be.visible')
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
-    cy.visit('/'+randomString+'/');
+    cy.visit('/'+randomString.slug()+'/');
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
     cy.contains('h1',randomString)
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
@@ -680,7 +681,7 @@ it('CY38 Create a new Post Successfully with Invalid Data and validate on websit
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
     cy.contains('span','Boom. It’s out there.').should('be.visible')
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
-    cy.visit('/'+randomString+'/');
+    cy.visit('/'+randomString.slug()+'/');
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
     cy.contains('h1',randomString)
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
@@ -707,7 +708,7 @@ it('CY39 Create a new Post Successfully with Invalid Data and validate on websit
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
     cy.contains('span','Boom. It’s out there.').should('be.visible')
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
-    cy.visit('/'+randomString+'/');
+    cy.visit('/'+randomString.slug()+'/');
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
     cy.contains('h1',randomString)
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
@@ -734,7 +735,7 @@ it('CY40 Create a new Post Successfully with Invalid Data and validate on websit
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
     cy.contains('span','Boom. It’s out there.').should('be.visible')
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
-    cy.visit('/'+randomString+'/');
+    cy.visit('/'+randomString.slug()+'/');
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
     cy.contains('h1',randomString)
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
@@ -907,4 +908,6 @@ it('CY48 Create a draft Post with Invalid Data and Verify Draft List', () => {
     cy.contains('h3',randomString).should('be.visible')
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
         
+})
+
 })
