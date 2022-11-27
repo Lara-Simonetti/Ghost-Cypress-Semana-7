@@ -1,3 +1,30 @@
+//Setting data pool
+
+import {faker} from '@faker-js/faker';
+
+faker.seed(123);
+
+const titlesDataPool = [];
+const blogTextDataPool = [];
+
+function getTitles(){
+    for(var i=0; i < 10; i++){
+        var newText = faker.lorem.paragraphs(3);
+        blogTextDataPool.push(newText);
+    };
+}
+
+function getBlogText(){
+    for(var i=0; i < 10; i++){
+        var newTitle = faker.lorem.sentence(5);
+        titlesDataPool.push(newTitle);
+    };
+}
+
+getTitles();
+getBlogText();
+
+// Test code
 const baseUrl = Cypress.env('ghostVersion') || 'new';
 describe('Sign In', () => {
     beforeEach(() => {
@@ -12,10 +39,10 @@ describe('Sign In', () => {
     it('CY05 Create a draft Post and Verify Draft List', () => {
         const testId = 'CY05'
         let screenshotId = 1
-        let randomString= Name_Alpha_Numeric() 
+        let randomString= titlesDataPool[0] 
         cy.get('textarea').type(randomString)   
         cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)     
-        cy.get('.koenig-editor__editor.__mobiledoc-editor.__has-no-content').type("Test") 
+        cy.get('.koenig-editor__editor.__mobiledoc-editor.__has-no-content').type(blogTextDataPool[0]) 
         cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)  
         cy.contains('span','Posts').click()
         cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
@@ -34,10 +61,10 @@ describe('Sign In', () => {
     it('CY06 Create a new Post Successfully and validate on website', () => {
         const testId = 'CY06'
         let screenshotId = 1
-        let randomString= Name_Alpha_Numeric() 
+        let randomString= titlesDataPool[1] 
         cy.get('textarea').type(randomString)
         cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)        
-        cy.get('.koenig-editor__editor.__mobiledoc-editor.__has-no-content').type("Test") 
+        cy.get('.koenig-editor__editor.__mobiledoc-editor.__has-no-content').type(blogTextDataPool[1]) 
         cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)  
         cy.get('.gh-btn.gh-btn-editor.darkgrey.gh-publish-trigger').click()
         cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
@@ -62,10 +89,10 @@ describe('Sign In', () => {
     it('CY07 Create a new Post Successfully and Verify Published List', () => {
         const testId = 'CY07'
         let screenshotId = 1
-        let randomString= Name_Alpha_Numeric() 
+        let randomString= titlesDataPool[2] 
         cy.get('textarea').type(randomString)
         cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)        
-        cy.get('.koenig-editor__editor.__mobiledoc-editor.__has-no-content').type("Test")
+        cy.get('.koenig-editor__editor.__mobiledoc-editor.__has-no-content').type(blogTextDataPool[2])
         cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)   
         cy.get('.gh-btn.gh-btn-editor.darkgrey.gh-publish-trigger').click()
         cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
@@ -95,10 +122,10 @@ describe('Sign In', () => {
     it('CY08 Create a new Scheduled Post Successfully and check Scheduled list', () => {
         const testId = 'CY08'
         let screenshotId = 1
-        let randomString= Name_Alpha_Numeric() 
+        let randomString= titlesDataPool[3] 
         cy.get('textarea').type(randomString)  
         cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)      
-        cy.get('.koenig-editor__editor.__mobiledoc-editor.__has-no-content').type("Test")  
+        cy.get('.koenig-editor__editor.__mobiledoc-editor.__has-no-content').type(blogTextDataPool[3])  
         cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`) 
         cy.get('.gh-btn.gh-btn-editor.darkgrey.gh-publish-trigger').click()
         cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
@@ -130,10 +157,10 @@ describe('Sign In', () => {
     
 })
 
-function Name_Alpha_Numeric() {
-    var text = "";
-    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-    for (var i = 0; i < 10; i++)
-    text += possible.charAt(Math.floor(Math.random() * possible.length));
-    return text;
-}
+//function Name_Alpha_Numeric() {
+//    var text = "";
+//    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+//    for (var i = 0; i < 10; i++)
+//    text += possible.charAt(Math.floor(Math.random() * possible.length));
+//    return text;
+//}
