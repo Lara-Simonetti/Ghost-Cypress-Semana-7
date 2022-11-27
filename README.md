@@ -39,7 +39,9 @@ Por ejemplo:
 
 ## Estrategias de pruebas utilizadas
 ### Pool de datos a priori
-descripción
+Esta técnica se utiliza en las pruebas de la funcionalidad de creación de posts mediante la librería Faker.js. Antes de iniciar las pruebas, se crean dos data pool: una para los títulos de posts y otra para su contenido. Se utiliza un Faker.seed para asegurarse de que el contenido de los data pool sean siempre los mismos. Luego, se utilizan funciones con un for loop para poblar cada data pool.
+
+Las pruebas acceden al contenido de los data pool mediante sus índices (ej.: 'titlesDataPool[8]').
 
 ### Pool de datos aleatorio dinámico
 descripción
