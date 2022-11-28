@@ -50,7 +50,7 @@ Esta técnica se usa en las pruebas de la funcionalidad de editar cuenta adminis
 descripción
 
 ## Registro de incidencias
-[Link al registro de incidencias.](https://github.com/users/Lara-Simonetti/projects/3)
+[Link al registro de incidencias.](https://github.com/Lara-Simonetti/Ghost-Cypress-Semana-7/issues)
 
 ## Lista de escenarios
 [Link a la lista de escenarios.](https://uniandes-my.sharepoint.com/:x:/g/personal/d_borrerov_uniandes_edu_co/Eeocc3EtOiBMlEJGcnAO0rkBDI-uuol3ulFY9mQKJh9G6A?e=Csenby)
