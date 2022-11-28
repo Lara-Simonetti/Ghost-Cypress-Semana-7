@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "open": "cypress open",
-    "open:entrega5": "cypress open --env ghostVersion=entrega5 --config baseUrl=http://localhost:2368",
+    "open:entrega5": "cypress open --env ghostVersion=entrega5 --config baseUrl=http://localhost:2379",
     "open:entrega6": "cypress open --env ghostVersion=entrega6 --config baseUrl=http://localhost:2333"
   },
   "keywords": [],
