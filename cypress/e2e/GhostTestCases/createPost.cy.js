@@ -49,6 +49,10 @@ function getInvalidData(){
         invalidDataPool.push(breakSpace);
         breakSpace+="\n";
     };
+
+    for(var i=0; i<invalidDataPool.length; i++){
+        invalidDataPool[i] = invalidDataPool[i].toString();
+    }
     
 }
 
@@ -111,7 +115,7 @@ describe('Sign In', () => {
         cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
         cy.contains('span','Boom. It’s out there.').should('be.visible')
         cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
-        cy.visit('/'+randomString.slug()+'/');
+        cy.visit('/'+randomString.slice(0, -1)+'/');
         cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
         cy.contains('h1',randomString)
         cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
@@ -210,7 +214,7 @@ it('CY21 Create a new Post Successfully and validate on website', () => {
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
     cy.contains('span','Boom. It’s out there.').should('be.visible')
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
-    cy.visit('/'+randomString.slug()+'/');
+    cy.visit('/'+randomString.slice(0, -1)+'/');
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
     cy.contains('h1',randomString)
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
@@ -237,7 +241,7 @@ it('CY22 Create a new Post Successfully and validate on website', () => {
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
     cy.contains('span','Boom. It’s out there.').should('be.visible')
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
-    cy.visit('/'+randomString.slug()+'/');
+    cy.visit('/'+randomString.slice(0, -1)+'/');
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
     cy.contains('h1',randomString)
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
@@ -264,7 +268,7 @@ it('CY23 Create a new Post Successfully and validate on website', () => {
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
     cy.contains('span','Boom. It’s out there.').should('be.visible')
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
-    cy.visit('/'+randomString.slug()+'/');
+    cy.visit('/'+randomString.slice(0, -1)+'/');
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
     cy.contains('h1',randomString)
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
@@ -291,7 +295,7 @@ it('CY24 Create a new Post Successfully and validate on website', () => {
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
     cy.contains('span','Boom. It’s out there.').should('be.visible')
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
-    cy.visit('/'+randomString.slug()+'/');
+    cy.visit('/'+randomString.slice(0, -1)+'/');
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
     cy.contains('h1',randomString)
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
@@ -318,7 +322,7 @@ it('CY25 Create a new Post Successfully and validate on website', () => {
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
     cy.contains('span','Boom. It’s out there.').should('be.visible')
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
-    cy.visit('/'+randomString.slug()+'/');
+    cy.visit('/'+randomString.slice(0, -1)+'/');
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
     cy.contains('h1',randomString)
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
@@ -367,7 +371,7 @@ it('CY27 Create a draft Post and Verify Draft List', () => {
         
 })
 
-it('CY28 Create a new Post Successfully and validate on website, switching title and text data pools', () => {
+it('CY28 Create a new Post and validate on Website (switch title and text data pools)', () => {
     const testId = 'CY28'
     let screenshotId = 1
     let randomString= blogTextDataPool[11] 
@@ -387,14 +391,14 @@ it('CY28 Create a new Post Successfully and validate on website, switching title
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
     cy.contains('span','Boom. It’s out there.').should('be.visible')
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
-    cy.visit('/'+randomString.slug()+'/');
+    cy.visit('/'+randomString.slice(0, -1)+'/');
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
     cy.contains('h1',randomString)
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
         
 })
 
-it('CY29 Create a new Post Successfully and validate on website, switching title and text data pools', () => {
+it('CY29 Create a new Post (switch title and text data pools)', () => {
     const testId = 'CY29'
     let screenshotId = 1
     let randomString= blogTextDataPool[12] 
@@ -414,14 +418,14 @@ it('CY29 Create a new Post Successfully and validate on website, switching title
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
     cy.contains('span','Boom. It’s out there.').should('be.visible')
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
-    cy.visit('/'+randomString.slug()+'/');
+    cy.visit('/'+randomString.slice(0, -1)+'/');
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
     cy.contains('h1',randomString)
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
         
 })
 
-it('CY30 Create a draft Post and Verify Draft List, switching title and text data pools', () => {
+it('CY30 Create a draft Post (switch title and text data pools)', () => {
     const testId = 'CY30'
     let screenshotId = 1
     let randomString= blogTextDataPool[13] 
@@ -442,7 +446,7 @@ it('CY30 Create a draft Post and Verify Draft List, switching title and text dat
 
 })
 
-it('CY31 Create a draft Post and Verify Draft List, switching title and text data pools', () => {
+it('CY31 Create a draft Post (switch title and text data pools)', () => {
     const testId = 'CY30'
     let screenshotId = 1
     let randomString= blogTextDataPool[14] 
@@ -463,7 +467,7 @@ it('CY31 Create a draft Post and Verify Draft List, switching title and text dat
 
 })
 
-it('CY32 Create a new Post Successfully and Verify Published List', () => {
+it('CY32 Create a new Post (switch title and text data pools)', () => {
     const testId = 'CY32'
     let screenshotId = 1
     let randomString= titlesDataPool[15] 
@@ -496,7 +500,7 @@ it('CY32 Create a new Post Successfully and Verify Published List', () => {
         
 })
 
-it('CY33 Create a new Post Successfully and Verify Published List, switching title and text data pools', () => {
+it('CY33 Create a new Post (switch title and text data pools)', () => {
     const testId = 'CY33'
     let screenshotId = 1
     let randomString= blogTextDataPool[16] 
@@ -529,7 +533,7 @@ it('CY33 Create a new Post Successfully and Verify Published List, switching tit
         
 })
 
-it('CY34 Create a new Post Successfully and Verify Published List, switching title and text data pools', () => {
+it('CY34 Create a new Post, Verify Published List (switch title and text data pools)', () => {
     const testId = 'CY34'
     let screenshotId = 1
     let randomString= blogTextDataPool[17] 
@@ -562,7 +566,7 @@ it('CY34 Create a new Post Successfully and Verify Published List, switching tit
         
 })
 
-it('CY35 Create a new Post Successfully and Verify Published List with Invalid Data', () => {
+it('CY35 Create a new Post, Verify Published List (Invalid Data)', () => {
     const testId = 'CY35'
     let screenshotId = 1
     let randomString= invalidDataPool[1] 
@@ -595,7 +599,7 @@ it('CY35 Create a new Post Successfully and Verify Published List with Invalid D
         
 })
 
-it('CY36 Create a new Post Successfully and Verify Published List with Invalid Data', () => {
+it('CY36 Create a new Post, Verify Published List (Invalid Data)', () => {
     const testId = 'CY36'
     let screenshotId = 1
     let randomString= invalidDataPool[2] 
@@ -628,7 +632,7 @@ it('CY36 Create a new Post Successfully and Verify Published List with Invalid D
         
 })
 
-it('CY37 Create a new Post Successfully and Verify Published List with Invalid Data', () => {
+it('CY37 Create a new Post, Verify Published List (Invalid Data)', () => {
     const testId = 'CY37'
     let screenshotId = 1
     let randomString= invalidDataPool[3] 
@@ -661,7 +665,7 @@ it('CY37 Create a new Post Successfully and Verify Published List with Invalid D
         
 })
 
-it('CY38 Create a new Post Successfully with Invalid Data and validate on website', () => {
+it('CY38 Create a new Post, Validate on Website (Invalid Data)', () => {
     const testId = 'CY38'
     let screenshotId = 1
     let randomString= invalidDataPool[4] 
@@ -681,14 +685,14 @@ it('CY38 Create a new Post Successfully with Invalid Data and validate on websit
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
     cy.contains('span','Boom. It’s out there.').should('be.visible')
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
-    cy.visit('/'+randomString.slug()+'/');
+    cy.visit('/'+randomString.slice(0, -1)+'/');
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
     cy.contains('h1',randomString)
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
         
 })
 
-it('CY39 Create a new Post Successfully with Invalid Data and validate on website', () => {
+it('CY39 Create a new Post, Validate on Website (Invalid Data)', () => {
     const testId = 'CY39'
     let screenshotId = 1
     let randomString= invalidDataPool[5] 
@@ -708,14 +712,14 @@ it('CY39 Create a new Post Successfully with Invalid Data and validate on websit
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
     cy.contains('span','Boom. It’s out there.').should('be.visible')
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
-    cy.visit('/'+randomString.slug()+'/');
+    cy.visit('/'+randomString.slice(0, -1)+'/');
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
     cy.contains('h1',randomString)
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
         
 })
 
-it('CY40 Create a new Post Successfully with Invalid Data and validate on website', () => {
+it('CY40 Create a new Post, Validate on Website (Invalid Data)', () => {
     const testId = 'CY40'
     let screenshotId = 1
     let randomString= invalidDataPool[6] 
@@ -735,14 +739,14 @@ it('CY40 Create a new Post Successfully with Invalid Data and validate on websit
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
     cy.contains('span','Boom. It’s out there.').should('be.visible')
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
-    cy.visit('/'+randomString.slug()+'/');
+    cy.visit('/'+randomString.slice(0, -1)+'/');
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
     cy.contains('h1',randomString)
     cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
         
 })
 
-it('CY41 Create a draft Post with Invalid Data and Verify Draft List', () => {
+it('CY41 Create a new Draft Post (Invalid Data)', () => {
     const testId = 'CY41'
     let screenshotId = 1
     let randomString= invalidDataPool[7] 
@@ -763,7 +767,7 @@ it('CY41 Create a draft Post with Invalid Data and Verify Draft List', () => {
         
 })
 
-it('CY42 Create a draft Post with Invalid Data and Verify Draft List', () => {
+it('CY42 Create a new Draft Post (Invalid Data)', () => {
     const testId = 'CY42'
     let screenshotId = 1
     let randomString= invalidDataPool[8] 
@@ -784,7 +788,7 @@ it('CY42 Create a draft Post with Invalid Data and Verify Draft List', () => {
         
 })
 
-it('CY43 Create a draft Post with Invalid Data and Verify Draft List', () => {
+it('CY43 Create a new Draft Post (Invalid Data)', () => {
     const testId = 'CY43'
     let screenshotId = 1
     let randomString= invalidDataPool[9] 
@@ -805,7 +809,7 @@ it('CY43 Create a draft Post with Invalid Data and Verify Draft List', () => {
         
 })
 
-it('CY44 Create a draft Post with Invalid Data and Verify Draft List', () => {
+it('CY44 Create a new Draft Post (Invalid Data)', () => {
     const testId = 'CY44'
     let screenshotId = 1
     let randomString= invalidDataPool[10] 
@@ -826,7 +830,7 @@ it('CY44 Create a draft Post with Invalid Data and Verify Draft List', () => {
         
 })
 
-it('CY45 Create a draft Post with Invalid Data and Verify Draft List', () => {
+it('CY45 Create a new Draft Post (Invalid Data)', () => {
     const testId = 'CY45'
     let screenshotId = 1
     let randomString= invalidDataPool[12] 
@@ -847,7 +851,7 @@ it('CY45 Create a draft Post with Invalid Data and Verify Draft List', () => {
         
 })
 
-it('CY46 Create a draft Post with Invalid Data and Verify Draft List', () => {
+it('CY46 Create a new Draft Post (Invalid Data)', () => {
     const testId = 'CY46'
     let screenshotId = 1
     let randomString= invalidDataPool[13] 
@@ -868,7 +872,7 @@ it('CY46 Create a draft Post with Invalid Data and Verify Draft List', () => {
         
 })
 
-it('CY47 Create a draft Post with Invalid Data and Verify Draft List', () => {
+it('CY47 Create a new Draft Post (Invalid Data)', () => {
     const testId = 'CY47'
     let screenshotId = 1
     let randomString= invalidDataPool[14] 
@@ -889,7 +893,7 @@ it('CY47 Create a draft Post with Invalid Data and Verify Draft List', () => {
         
 })
 
-it('CY48 Create a draft Post with Invalid Data and Verify Draft List', () => {
+it('CY48 Create a new Draft Post (Invalid Data)', () => {
     const testId = 'CY48'
     let screenshotId = 1
     let randomString= invalidDataPool[15] 
