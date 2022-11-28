@@ -157,7 +157,7 @@ describe('Sign In', () => {
         
     })*/
 
-    it('CY79 Try to create a post without data', () => {
+    it('CY79 Try to create a tag without data', () => {
         const testId = 'CY79'
         let screenshotId = 1
         cy.contains('a','New Tag').click()
@@ -166,7 +166,7 @@ describe('Sign In', () => {
         cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
     })
 
-    it('CY80 Try to create a post with title only', () => {
+    it('CY80 Try to create a tag with title only', () => {
         const testId = 'CY80'
         let screenshotId = 1
         let randomString= titlesDataPool[0]
@@ -178,7 +178,7 @@ describe('Sign In', () => {
         cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
     })
 
-    it('CY81 Try to save post only description', () => {
+    it('CY81 Try to save tag only description', () => {
         const testId = 'CY81'
         let screenshotId = 1
         let randomString= titlesDataPool[1]
@@ -190,7 +190,7 @@ describe('Sign In', () => {
         cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
     })
     
-    it('CY82 Try to save post with title and description', () => {
+    it('CY82 Try to save tag with title and description', () => {
         const testId = 'CY82'
         let screenshotId = 1
         let randomString= titlesDataPool[2]
@@ -205,7 +205,7 @@ describe('Sign In', () => {
 
     })
 
-    it('CY83 Try to save post with slug only', () => {
+    it('CY83 Try to save tag with slug only', () => {
         const testId = 'CY83'
         let screenshotId = 1
         let randomString= titlesDataPool[3]
@@ -217,7 +217,7 @@ describe('Sign In', () => {
         cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
     })
     
-    it('CY84 Try to save post with title and slug', () => {
+    it('CY84 Try to save tag with title and slug', () => {
         const testId = 'CY84'
         let screenshotId = 1
         let randomString= titlesDataPool[4]
@@ -232,7 +232,7 @@ describe('Sign In', () => {
 
     })
 
-    it('CY85 Try to save post with title, description and slug', () => {
+    it('CY85 Try to save tag with title, description and slug', () => {
         const testId = 'CY85'
         let screenshotId = 1
         let randomString= titlesDataPool[5]
@@ -249,7 +249,7 @@ describe('Sign In', () => {
 
     })
 
-    it('CY86 Try to save post with description and slug', () => {
+    it('CY86 Try to save tag with description and slug', () => {
         const testId = 'CY86'
         let screenshotId = 1
         let randomString= titlesDataPool[6]
@@ -263,7 +263,7 @@ describe('Sign In', () => {
         cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
     })
 
-    it('CY87 Post with internal tags', () => {
+    it('CY87 tag with internal tags', () => {
         const testId = 'CY87'
         let screenshotId = 1
         let randomString= titlesDataPool[7]
@@ -279,7 +279,7 @@ describe('Sign In', () => {
     })
     
 
-    it('CY88 Post with internal tags', () => {
+    it('CY88 tag with internal tags', () => {
         const testId = 'CY88'
         let screenshotId = 1
         let randomString= titlesDataPool[8]
@@ -294,7 +294,7 @@ describe('Sign In', () => {
 
     })
 
-    it('CY89 Post with internal tags', () => {
+    it('CY89 tag with internal tags', () => {
         const testId = 'CY89'
         let screenshotId = 1
         let randomString= titlesDataPool[9]
@@ -309,7 +309,7 @@ describe('Sign In', () => {
 
     })
 
-    it('CY90 Post with internal tags', () => {
+    it('CY90 tag with internal tags', () => {
         const testId = 'CY90'
         let screenshotId = 1
         let randomString= titlesDataPool[10]
@@ -326,7 +326,7 @@ describe('Sign In', () => {
 
     })
 
-    it('CY91 Post with internal tags', () => {
+    it('CY91 tag with internal tags', () => {
         const testId = 'CY91'
         let screenshotId = 1
         let randomString= titlesDataPool[11]
@@ -341,7 +341,7 @@ describe('Sign In', () => {
 
     })
 
-    it('CY92 Post with internal tags', () => {
+    it('CY92 tag with internal tags', () => {
         const testId = 'CY92'
         let screenshotId = 1
         let randomString= titlesDataPool[12]
@@ -358,7 +358,7 @@ describe('Sign In', () => {
 
     })
 
-    it('CY93 Post with internal tags', () => {
+    it('CY93 tag with internal tags', () => {
         const testId = 'CY93'
         let screenshotId = 1
         let randomString= titlesDataPool[13]
@@ -375,7 +375,7 @@ describe('Sign In', () => {
 
     })
 
-    it('CY94 Post with internal tags', () => {
+    it('CY94 tag with internal tags', () => {
         const testId = 'CY94'
         let screenshotId = 1
         let randomString= titlesDataPool[14]
@@ -394,7 +394,7 @@ describe('Sign In', () => {
 
     })
 
-    it('CY95 Post with internal tags', () => {
+    it('CY95 tag with internal tags', () => {
         const testId = 'CY95'
         let screenshotId = 1
         let randomString= titlesDataPool[6]
@@ -411,7 +411,7 @@ describe('Sign In', () => {
 
     })
 
-    it('CY96 Post with internal tags', () => {
+    it('CY96 tag with internal tags', () => {
         const testId = 'CY96'
         let screenshotId = 1
         let randomString= titlesDataPool[7]
@@ -429,7 +429,7 @@ describe('Sign In', () => {
     })
     
 
-    it('CY97 Post with internal tags', () => {
+    it('CY97 tag with internal tags', () => {
         const testId = 'CY97'
         let screenshotId = 1
         let randomString= titlesDataPool[7]
@@ -447,7 +447,7 @@ describe('Sign In', () => {
     })
     
 
-    it('CY98 Post with internal and Public tags', () => {
+    it('CY98 tag with internal and Public tags', () => {
         const testId = 'CY98'
         let screenshotId = 1
         let randomString= titlesDataPool[8]
@@ -464,7 +464,7 @@ describe('Sign In', () => {
 
     })
 
-    it('CY99 Post with internal and Public tags', () => {
+    it('CY99 tag with internal and Public tags', () => {
         const testId = 'CY99'
         let screenshotId = 1
         let randomString= titlesDataPool[9]
@@ -481,7 +481,7 @@ describe('Sign In', () => {
 
     })
 
-    it('CY100 Post with internal and Public tags', () => {
+    it('CY100 tag with internal and Public tags', () => {
         const testId = 'CY100'
         let screenshotId = 1
         let randomString= titlesDataPool[10]
@@ -500,7 +500,7 @@ describe('Sign In', () => {
 
     })
 
-    it('CY101 Post with internal and Public tags', () => {
+    it('CY101 tag with internal and Public tags', () => {
         const testId = 'CY101'
         let screenshotId = 1
         let randomString= titlesDataPool[11]
@@ -517,7 +517,7 @@ describe('Sign In', () => {
 
     })
 
-    it('CY102 Post with internal and Public tags', () => {
+    it('CY102 tag with internal and Public tags', () => {
         const testId = 'CY102'
         let screenshotId = 1
         let randomString= titlesDataPool[12]
@@ -534,7 +534,7 @@ describe('Sign In', () => {
 
     })
 
-    it('CY103 Post with internal and Public tags', () => {
+    it('CY103 tag with internal and Public tags', () => {
         const testId = 'CY103'
         let screenshotId = 1
         let randomString= titlesDataPool[13]
@@ -553,7 +553,7 @@ describe('Sign In', () => {
 
     })
 
-    it('CY104 Post with internal and Public tags', () => {
+    it('CY104 tag with internal and Public tags', () => {
         const testId = 'CY104'
         let screenshotId = 1
         let randomString= titlesDataPool[14]
@@ -574,7 +574,7 @@ describe('Sign In', () => {
 
     })
 
-    it('CY105 Post with internal and Public tags', () => {
+    it('CY105 tag with internal and Public tags', () => {
         const testId = 'CY105'
         let screenshotId = 1
         let randomString= titlesDataPool[6]
@@ -593,7 +593,7 @@ describe('Sign In', () => {
 
     })
 
-    it('CY106 Post with internal and Public tags', () => {
+    it('CY106 tag with internal and Public tags', () => {
         const testId = 'CY106'
         let screenshotId = 1
         let randomString= titlesDataPool[7]
@@ -612,7 +612,7 @@ describe('Sign In', () => {
 
     })
 
-    it('CY107 Try to create a post without data', () => {
+    it('CY107 Try to create a tag without data', () => {
         const testId = 'CY107'
         let screenshotId = 1
         cy.contains('a','New Tag').click()
@@ -623,7 +623,7 @@ describe('Sign In', () => {
         cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
     })
 
-    it('CY108 Try to create a post with title only', () => {
+    it('CY108 Try to create a tag with title only', () => {
         const testId = 'CY108'
         let screenshotId = 1
         let randomString= titlesDataPool[0]
@@ -637,7 +637,7 @@ describe('Sign In', () => {
         cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
     })
 
-    it('CY109 Try to create a post with title only', () => {
+    it('CY109 Try to create a tag with title only', () => {
         const testId = 'CY108'
         let screenshotId = 1
         let randomString= titlesDataPool[0]
