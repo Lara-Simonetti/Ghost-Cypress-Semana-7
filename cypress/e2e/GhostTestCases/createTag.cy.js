@@ -636,6 +636,22 @@ describe('Sign In', () => {
         cy.contains('a','New Tag').click()
         cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
     })
+
+    it('CY109 Try to create a post with title only', () => {
+        const testId = 'CY108'
+        let screenshotId = 1
+        let randomString= titlesDataPool[0]
+        cy.contains('a','New Tag').click()
+        cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+        cy.contains('button', 'Public tags').click()
+        cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+        cy.get('#tag-name').type("New Tag"+randomString)
+        cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+        cy.get('.gh-btn-primary').click()
+        cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+        cy.contains('a','New Tag').click()
+        cy.screenshot(`${baseUrl}/${testId}-${screenshotId++}`)
+    })
     
 
 })
