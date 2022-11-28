@@ -47,7 +47,11 @@ Las pruebas acceden al contenido de los data pool mediante sus índices (ej.: `t
 Esta técnica se usa en las pruebas de la funcionalidad de editar cuenta administrador mediante la librería Faker.js. Los datos se generan al momento de ejecución de las pruebas (no se crean listas de datos antes de las pruebas para acceder luego).
 
 ### Escenario aleatorio
-descripción
+Esta técnica se implementa en el archivo memberSpec.cy.js. En este archivo se hacen pruebas para las funcionalidades de Crear member, eliminar member y listar member. Se basó principalmente en la reutilización de los casos realizados para la entrega #5. Se crearon funciones que representan eventos y se hicieron de tal forma que permitiera la secuencialidad entre ellos. 
+Se crea una estructura que indica cuales son las posibilidades de secuencialidad entre eventos. A partir de un número random con distribución uniforme, cuando ocurre un evento se procede a elegir cuál es el siguiente dentro de las opciones posibles y así hasta llegar al caso base, que es que ya no tenga eventos siguientes.
+Se agregó otra variable para probar casos intermedios. Esta variable indica cuántos eventos quiero evaluar y también es un número aleatorio de acuerdo al máximo nivel de profundidad posible.
+Por último, el algoritmo evalúa bajo dos condiciones: teniendo correo y nombre válidos generados con faker para ejecutar los flujos de member (15 casos) y teniendo correo inválido (15 casos).
+Dentro de las ejecuciones, a pesar de que se partió de tests que pasaban, al randomizar la secuencialidad de los eventos, no es tan sencillo asegurar que todos los flujos se mantengan, por lo cual... para poder usar la estrategia, se requiere pensar cuidadosamente de qué manera asegurar la secuencialidad adecuada, lo cual puede llevar bastante tiempo para obtener un resultado de valor.
 
 ## Registro de incidencias
 [Link al registro de incidencias.](https://github.com/Lara-Simonetti/Ghost-Cypress-Semana-7/issues)
