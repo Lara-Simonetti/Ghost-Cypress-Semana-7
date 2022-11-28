@@ -1,3 +1,4 @@
+
 # Ghost-Cypress-Semana-7 | Generación de datos aleatorios
 Entrega de la Semana 7 de MISW4103.
 
@@ -9,6 +10,10 @@ Jeimmy Camacho Medina jx.camacho@uniandes.edu.co
 Lara Simonetti l.simonetti@uniandes.edu.co
 <br>
 Pedro Higuera p.higuera@uniandes.edu.co
+
+##Documentación Pruebas Semana 7: 
+
+https://uniandes-my.sharepoint.com/:x:/g/personal/jx_camacho_uniandes_edu_co/EcXKLYYNvUdHhv9McfVyeXABU00Yf3QGfFj72ePErhbx0A?e=Y8XbEo
 
 ## Funcionalidades
 
